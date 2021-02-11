@@ -1,0 +1,36 @@
+﻿<Window x:Class="first_try.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:first_try"
+        mc:Ignorable="d"
+        Title="OPFV" Height="454" Width="804">
+    <Grid Background="#FFEA9A9A">
+        <Button x:Name="StergeButton" Content="Șterge OP/FV-urile" HorizontalAlignment="Left" Margin="66,104,0,0" VerticalAlignment="Top" Width="161" Background="#FFFDC70F" Height="49" Click="StergeClick" BorderBrush="#FF040000" FontSize="18" ToolTip="Șterge toate OP/FV-urile încărcate"/>
+        <Button x:Name="LegislatieButton" Content="Legislație" HorizontalAlignment="Left" Margin="201,217,0,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" Click="LegislatieClick" FontSize="18" Height="30" VerticalContentAlignment="Top" BorderThickness="1"/>
+        <TextBox x:Name="TitluTxt" HorizontalAlignment="Left" Height="134" Margin="276,41,0,0" TextWrapping="Wrap" Text="Ordine de plată/ Foi de vărsământ" VerticalAlignment="Top" Width="265" IsReadOnly="True" FontSize="30" Background="#FFFFD598" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="{x:Null}"/>
+        <TextBox x:Name="SubtitluTxt" HorizontalAlignment="Left" Height="28" Margin="276,173,0,0" TextWrapping="Wrap" Text="(în relație cu trezoreria statului)" VerticalAlignment="Top" Width="265" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFFFDFB2" FontSize="16" BorderBrush="{x:Null}"/>
+        <GroupBox x:Name="IncarcareGb" HorizontalAlignment="Left" Height="125" Margin="29,267,0,0" VerticalAlignment="Top" Width="735" Background="#FFF0C3C3" BorderBrush="{x:Null}" Foreground="Black">
+            <Button x:Name="ListareButton" Content="Listare OP/FV" HorizontalAlignment="Left" Margin="22,43,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="36"/>
+
+        </GroupBox>
+        <Label x:Name="NrOrdLabel" Content="Nr. de ordine:" HorizontalAlignment="Left" Margin="201,301,0,0" VerticalAlignment="Top" FontSize="16" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1"/>
+        <TextBox x:Name="NrOrdTxt" HorizontalAlignment="Left" Height="27" Margin="201,332,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="109" FontSize="16" Background="#FFFDECB3" BorderBrush="#FF040000" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip="Număr de ordine OP/FV încărcat"/>
+        <Button x:Name="QstButton" Content="?" HorizontalAlignment="Left" Margin="328,317,0,0" VerticalAlignment="Top" Width="27" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="18" FontWeight="Bold" Click="Qst_Click" RenderTransformOrigin="0.395,-0.024" ToolTip="Informații"/>
+        <Label x:Name="NrOrd2Label" Content="Nr. de ordine, nr. OP/FV" HorizontalAlignment="Left" Margin="384,301,0,0" VerticalAlignment="Top" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="16"/>
+        <ComboBox x:Name="NrOrdCmb" HorizontalAlignment="Left" Margin="384,332,0,0" VerticalAlignment="Top" Width="181" BorderBrush="Black" FontSize="16" BorderThickness="2,1,2,2" IsReadOnly="True"/>
+        <GroupBox x:Name="OPFVradbtn" HorizontalAlignment="Left" Height="33" Margin="590,301,0,0" VerticalAlignment="Top" Width="156" BorderBrush="Black"/>
+        <RadioButton x:Name="OPRadiobtn" Content="OP" HorizontalAlignment="Left" Margin="612,306,0,0" VerticalAlignment="Top" FontSize="18" Height="25" Width="44" IsChecked="True"/>
+        <RadioButton x:Name="FVRadiobtn" Content="FV" HorizontalAlignment="Left" Margin="691,306,0,0" VerticalAlignment="Top" FontSize="18" Height="25" RenderTransformOrigin="0.402,-0.373"/>
+        <Button x:Name="IncarcareButton" Content="Încărcare" HorizontalAlignment="Left" Margin="609,339,0,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="18" FontWeight="Bold" Height="33" ToolTip="Încărcare/actualizare OP/FV" Click="Incarcare_Click"/>
+        <Button x:Name="ListarePachetButton" Content="Listare pachet OP/FV-uri" HorizontalAlignment="Left" Margin="557,41,0,0" VerticalAlignment="Top" Width="207" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18"  ToolTip="Listare OP/FV-uri. Poziționați-vă mai întâi pe un OP/FV din pachet" Click="ListarePachet_Click" Height="49"/>
+        <Button x:Name="Borderou1Button" Content="Borderou OP/FV" HorizontalAlignment="Left" Margin="557,100,0,0" VerticalAlignment="Top" Width="207" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" Click="Borderou1_Click" ToolTip="Vizualizare/listare borderou OP/FV pentru un singur IBAN plătitor"/>
+        <Button x:Name="Borderou2Button" Content="Borderou OP" HorizontalAlignment="Left" Margin="557,136,0,0" VerticalAlignment="Top" Width="207" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" Click="Borderou2_Click" ToolTip="Vizualizare/listare borderou OP pentru mai multe IBAN-uri plătitoare"/>
+        <Button x:Name="FormulareButton" Content="Formulare goale OP/FV" HorizontalAlignment="Left" Margin="557,173,0,0" VerticalAlignment="Top" Width="207" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" ToolTip="Listare formulare goale" Click="Formulare_Click"/>
+        <Button x:Name="InstructButton" Content="Instrucțiuni" HorizontalAlignment="Left" Margin="349,217,0,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" Height="30" BorderThickness="1" Click="Instruct_Click"/>
+        <Button x:Name="StructuriButton" Content="Structuri" HorizontalAlignment="Left" Height="30" Margin="499,217,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Structuri_Click"/>
+
+    </Grid>
+
+</Window>

@@ -1,0 +1,197 @@
+﻿<Window x:Class="first_try.Fereastra_Incarcare"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:first_try"
+        mc:Ignorable="d"
+        Title="" Height="767" Width="1160" Background="#ffffff">
+    <Grid>
+
+        <Border x:Name="brdOP" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="6,24,0,0" VerticalAlignment="Top" Width="1140">
+            <Canvas x:Name="cvsOP" HorizontalAlignment="Left" Height="89" Margin="-4,-1,0,-1" VerticalAlignment="Top" Width="1140">
+                <Label x:Name="lblOP" Content="ORDIN DE PLATĂ" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="32" FontWeight="Bold" FontFamily="Times New Roman" Canvas.Left="14" Canvas.Top="2"/>
+                <TextBox x:Name="txtNumarInCuvinte" HorizontalAlignment="Center" Height="37" BorderBrush="Black" BorderThickness="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="1116" Canvas.Left="14" Canvas.Top="47" IsReadOnly="True" FontFamily="Times New Roman" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblNr" Content="Nr." HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="20" Canvas.Left="331" Canvas.Top="9" FontWeight="Bold"/>
+                <TextBox x:Name="txtNr" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="103" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Canvas.Left="375" Canvas.Top="9" FontFamily="Times New Roman" FontSize="22"/>
+                <Label x:Name="lblPlatiti" Content="PLĂTIȚI" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Canvas.Left="494" Canvas.Top="9"/>
+                <TextBox x:Name="txtPlatiti" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="423" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="592" Canvas.Top="9"/>
+                <Label x:Name="lblLei" Content="LEI, adică" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="105" FontFamily="Times New Roman" FontWeight="Bold" FontSize="20" Canvas.Left="1025" Canvas.Top="10"/>
+            </Canvas>
+        </Border>
+        <Border x:Name="brdPlat" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="270" Margin="6,113,0,0" VerticalAlignment="Top" Width="646">
+            <Canvas x:Name="cvsPlat" HorizontalAlignment="Left" Margin="-1" VerticalAlignment="Top" Height="270" Width="646">
+                <Label x:Name="lblPlat" Content="PLĂTITOR" Canvas.Left="12" Canvas.Top="6" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtPlat" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="503" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="131" Canvas.Top="7"/>
+                <Label x:Name="lblCodPlat" Content="Cod de identificare fiscală" Canvas.Left="12" Canvas.Top="41" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtCodPlat" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="245" Canvas.Top="42"/>
+                <Label x:Name="lblAdresaPlat" Content="Adresă" Canvas.Left="523" Canvas.Top="42" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtAdresaPlat" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="624" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="10" Canvas.Top="77"/>
+                <Label x:Name="lblIbanPlat" Content="Cod IBAN plătitor" Canvas.Left="12" Canvas.Top="137" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtIbanPlat" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="185" Canvas.Top="138"/>
+                <Label x:Name="lblBicPlat" Content="Codul BIC" Canvas.Left="528" Canvas.Top="107" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtBicPlat" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="111" Background="#ffffff" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="523" Canvas.Top="138"/>
+                <Label x:Name="lblDeLa" Content="De la" Canvas.Top="173" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="12"/>
+                <TextBox x:Name="txtDeLa" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="565" Background="#ffffff" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="69" Canvas.Top="173"/>
+                <Label x:Name="lblAngajament" Content="Angajament: Cod" Canvas.Top="204" FontFamily="Times New Roman" FontSize="18" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="10"/>
+                <TextBox x:Name="txtAngajament" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="226" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="10" Canvas.Top="230"/>
+                <Label x:Name="lblIndicator" Content="Indicator" Canvas.Top="204" FontFamily="Times New Roman" FontSize="18" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="244"/>
+                <TextBox x:Name="txtIndicator" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="72" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="245" Canvas.Top="230"/>
+                <Label x:Name="lblCodProgr" Content="Cod program" Canvas.Top="204" FontFamily="Times New Roman" FontSize="18" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="423"/>
+                <TextBox x:Name="txtCodProgr" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="202" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="369" Canvas.Top="230"/>
+
+            </Canvas>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="316" Margin="6,383,0,0" VerticalAlignment="Top" Width="646" RenderTransformOrigin="0.5,0.5">
+            <Canvas x:Name="cvsBenef" HorizontalAlignment="Left" Margin="-1" VerticalAlignment="Bottom" Height="316" Width="646">
+                <Label x:Name="lblBenef" Content="BENEFICIAR" Canvas.Left="12" Canvas.Top="7" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtBenef" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="617" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="17" Canvas.Top="40"/>
+                <Label x:Name="lblCodBenef" Content="Cod de identificare fiscală" Canvas.Left="12" Canvas.Top="84" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtCodBenef" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="239" Canvas.Top="84"/>
+                <Label x:Name="lblIbanBenef" Content="Cod IBAN beneficiar" Canvas.Left="12" Canvas.Top="120" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtIbanBenef" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="333" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="190" Canvas.Top="120"/>
+                <Label x:Name="lblBicBenef" Content="Codul BIC" Canvas.Left="528" Canvas.Top="89" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtBicBenef" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="111" Background="#ffffff" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="523" Canvas.Top="120"/>
+                <Label x:Name="lblLa" Content="La" Canvas.Top="153" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="12"/>
+                <TextBox x:Name="txtLa" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="586" Background="#ffffff" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="48" Canvas.Top="153"/>
+                <Label x:Name="lblNrEvid" Content="Nr. de evidență a plății &#xA;pt. decizie de impunere/ PV" Canvas.Left="10" Canvas.Top="185" FontFamily="Times New Roman" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="173" Height="42"/>
+                <TextBox x:Name="txtNrEvid" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="444" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="190" Canvas.Top="186"/>
+                <Label x:Name="lblReprez" Content="Reprezentând:" Canvas.Left="226" Canvas.Top="214" FontFamily="Times New Roman" FontSize="14" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="173" Height="29"/>
+                <TextBox x:Name="txtReprez" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="622" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="12" Canvas.Top="241"/>
+                <Label x:Name="lblNr1" HorizontalAlignment="Left" Height="25" Content="(1)" Canvas.Bottom="10" FontFamily="Times New Roman" FontSize="14" VerticalContentAlignment="Center" Canvas.Left="7"/>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="311" Margin="652,113,0,0" VerticalAlignment="Top" Width="494">
+            <Canvas x:Name="cvsNavig" HorizontalAlignment="Center" Height="311" Width="494" Margin="0,0,0,0" VerticalAlignment="Top">
+                <Button x:Name="btnLegislatie" Content="Legislație" ToolTip="Legislație" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Margin="60,10,0,0" Click="LegislatieClick"/>
+                <Button x:Name="btnInstr" Content="Instrucțiuni" ToolTip="Instrucțiuni de lucru" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Margin="60,45,0,0" Click="InstrClick"/>
+                <Button x:Name="btnInfUtile" Content="Inf. Utile" ToolTip="Informații utile" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Margin="170,45,0,0" Click="InfUtile"/>
+                <Button x:Name="btnSugestii" Content="Sugestii" ToolTip="Sugestii" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Margin="60,80,0,0" Click="SugestiiClick"/>
+                <Button x:Name="btnFisierDate" Content="Fișier Date" ToolTip="Vizualizare fișier date încărcate" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Margin="170,80,0,0" Click="FisierDateClick"/>
+                <Button x:Name="btnFondMediu" Content="Fondul pt. mediu" ToolTip="Completare automată pentru taxe Fond de Mediu" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="140" FontSize="18" Margin="280,80,0,0" Click="FondMediuClick"/>
+                <Button x:Name="btnOPFVtext" Content="OP/FV - imagine text" ToolTip="Listare sub Notepad" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="165" FontSize="18" Margin="280,45,0,0" Click="OPFVtextClick"/>
+                <Button x:Name="btnSalvare" Content="Salvare" ToolTip="Salvare" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Margin="170,10,0,0" Click="SalvareClick"/>
+                <Button x:Name="btnExportare" Content="Exportare PDF" ToolTip="Exportare în format PDF" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="140" FontSize="18" Margin="280,10,0,0" Click="ExportareClick"/>
+
+                <Label x:Name="lblPrimireAcc" Content="Primirea/Acceptarea ______________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="55" Canvas.Left="7"/>
+                <Label x:Name="lblSemnatura" Content="Semnătura  ______________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="15" Canvas.Left="7"/>
+                <Image Height="100" Width="100" Source="C:\Users\Ina\OneDrive\Desktop\LS.jpg" Canvas.Bottom="1" Canvas.Right="3"/>
+
+
+            </Canvas>
+
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="80" Margin="652,424,0,0" VerticalAlignment="Top" Width="494">
+            <Canvas>
+                <Label x:Name="lblTipTrans" Content="Tipul Transferului" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="0,29,0,17" Canvas.Left="7" />
+                <Label x:Name="lblNormal" Content="NORMAL" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="167,5"/>
+                <Rectangle Fill="#FFF4F4F5" Height="36" Stroke="Black" Width="36" Canvas.Left="194" Canvas.Top="35"/>
+                <Label x:Name="lblUrgent" Content="URGENT" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="282,5"/>
+                <Rectangle Fill="#FFF4F4F5" Height="36" Stroke="Black" Width="36" Canvas.Left="309" Canvas.Top="35"/>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="195" Margin="652,504,0,0" VerticalAlignment="Top" Width="494">
+            <Canvas>
+                <Label x:Name="lblDataEmit" Content="Data emiterii" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,62"/>
+                <DatePicker Canvas.Left="123" Canvas.Top="64" Width="177" Height="31" FontFamily="Times New Roman" FontSize="18"/>
+                <Label x:Name="lblLinie" Content="___________________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,100"/>
+                <Label x:Name="lblSemnaturaPlat" Content="Semnătura plătitorului și Ștampila" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,120"/>
+                <Label x:Name="lblDataDebit" Content="Data debitării" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,157"/>
+                <TextBox x:Name="txtDataDebi" IsReadOnly="True" Height="28" Width="170" Background="#ffffff" BorderBrush="Black" Canvas.Left="130" Canvas.Top="160"/>
+                <Label x:Name="lblExp" Content="EXP." FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="323,130"/>
+                <Rectangle Fill="#FFF4F4F5" Height="28" Stroke="Black" Width="40" Canvas.Bottom="5" Canvas.Right="125"/>
+                <Image Height="100" Width="100" Source="C:\Users\Ina\OneDrive\Desktop\LS.jpg" Canvas.Top="10" Canvas.Right="3"/>
+                <Label x:Name="lblVersiune" Content="v. 2021" FontFamily="Times New Roman" FontSize="18" Canvas.Bottom="5" Canvas.Right="15"/>
+            </Canvas>
+        </Border>
+        <Border>
+            <Canvas>
+                <Line Stroke="#000000" StrokeDashArray="20 8" X2="1133" Margin="10,705" />
+            </Canvas>
+        </Border>
+        <Border x:Name="brdOP2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="6,712,0,0" VerticalAlignment="Top" Width="1140">
+            <Canvas x:Name="cvsOP2" HorizontalAlignment="Left" Height="89" Margin="-1,-1,0,-1" VerticalAlignment="Top" Width="1140">
+                <Label x:Name="lblOP2" Content="ORDIN DE PLATĂ" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="32" FontWeight="Bold" FontFamily="Times New Roman" Canvas.Left="14" Canvas.Top="2"/>
+                <TextBox x:Name="txtNumarInCuvinte2" HorizontalAlignment="Center" Height="37" BorderBrush="Black" BorderThickness="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="1116" Canvas.Left="14" Canvas.Top="47" IsReadOnly="True" FontFamily="Times New Roman" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblNr2" Content="Nr." HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="20" Canvas.Left="331" Canvas.Top="9" FontWeight="Bold"/>
+                <TextBox x:Name="txtNr2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="103" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Canvas.Left="375" Canvas.Top="9" FontFamily="Times New Roman" FontSize="22"/>
+                <Label x:Name="lblPlatiti2" Content="PLĂTIȚI" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold" Canvas.Left="494" Canvas.Top="9"/>
+                <TextBox x:Name="txtPlatiti2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="423" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="592" Canvas.Top="9"/>
+                <Label x:Name="lblLei2" Content="LEI, adică" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="105" FontFamily="Times New Roman" FontWeight="Bold" FontSize="20" Canvas.Left="1025" Canvas.Top="10"/>
+
+            </Canvas>
+        </Border>
+        <Border x:Name="brdPlat2" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="270" Margin="6,801,0,0" VerticalAlignment="Top" Width="646">
+            <Canvas x:Name="cvsPlat2" HorizontalAlignment="Left" Margin="-1" VerticalAlignment="Top" Height="270" Width="646">
+                <Label x:Name="lblPlat2" Content="PLĂTITOR" Canvas.Left="12" Canvas.Top="6" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtPlat2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="503" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="131" Canvas.Top="7"/>
+                <Label x:Name="lblCodPlat2" Content="Cod de identificare fiscală" Canvas.Left="12" Canvas.Top="41" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtCodPlat2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="245" Canvas.Top="42"/>
+                <Label x:Name="lblAdresaPlat2" Content="Adresă" Canvas.Left="523" Canvas.Top="42" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtAdresaPlat2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="624" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="10" Canvas.Top="77"/>
+                <Label x:Name="lblIbanPlat2" Content="Cod IBAN plătitor" Canvas.Left="12" Canvas.Top="137" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtIbanPlat2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="338" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="185" Canvas.Top="138"/>
+                <Label x:Name="lblBicPlat2" Content="Codul BIC" Canvas.Left="528" Canvas.Top="107" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtBicPlat2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="111" Background="#ffffff" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="523" Canvas.Top="138"/>
+                <Label x:Name="lblDeLa2" Content="De la" Canvas.Top="173" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="12"/>
+                <TextBox x:Name="txtDeLa2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="565" Background="#ffffff" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="69" Canvas.Top="173"/>
+                <Label x:Name="lblAngajament2" Content="Angajament: Cod" Canvas.Top="204" FontFamily="Times New Roman" FontSize="18" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="10"/>
+                <TextBox x:Name="txtAngajament2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="226" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="10" Canvas.Top="230"/>
+                <Label x:Name="lblIndicator2" Content="Indicator" Canvas.Top="204" FontFamily="Times New Roman" FontSize="18" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="244"/>
+                <TextBox x:Name="txtIndicator2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="72" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="245" Canvas.Top="230"/>
+                <Label x:Name="lblCodProgr2" Content="Cod program" Canvas.Top="204" FontFamily="Times New Roman" FontSize="18" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="423"/>
+                <TextBox x:Name="txtCodProgr2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="202" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="369" Canvas.Top="230"/>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="316" Margin="6,1071,0,0" VerticalAlignment="Top" Width="646" RenderTransformOrigin="0.5,0.5">
+            <Canvas x:Name="cvsBenef2" HorizontalAlignment="Left" Margin="-1" VerticalAlignment="Bottom" Height="316" Width="646">
+                <Label x:Name="lblBenef2" Content="BENEFICIAR" Canvas.Left="12" Canvas.Top="7" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtBenef2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="617" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="17" Canvas.Top="40"/>
+                <Label x:Name="lblCodBenef2" Content="Cod de identificare fiscală" Canvas.Left="12" Canvas.Top="84" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtCodBenef2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="250" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="239" Canvas.Top="84"/>
+                <Label x:Name="lblIbanBenef2" Content="Cod IBAN beneficiar" Canvas.Left="12" Canvas.Top="120" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtIbanBenef2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="333" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="190" Canvas.Top="120"/>
+                <Label x:Name="lblBicBenef2" Content="Codul BIC" Canvas.Left="528" Canvas.Top="89" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <TextBox x:Name="txtBicBenef2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="111" Background="#ffffff" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="523" Canvas.Top="120"/>
+                <Label x:Name="lblLa2" Content="La" Canvas.Top="153" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" VerticalContentAlignment="Center" RenderTransformOrigin="0.629,0.189" Canvas.Left="12"/>
+                <TextBox x:Name="txtLa2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="586" Background="#ffffff" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="48" Canvas.Top="153"/>
+                <Label x:Name="lblNrEvid2" Content="Nr. de evidență a plății &#xA;pt. decizie de impunere/ PV" Canvas.Left="10" Canvas.Top="185" FontFamily="Times New Roman" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="173" Height="42"/>
+                <TextBox x:Name="txtNrEvid2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="444" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="190" Canvas.Top="186"/>
+                <Label x:Name="lblReprez2" Content="Reprezentând:" Canvas.Left="226" Canvas.Top="214" FontFamily="Times New Roman" FontSize="14" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="173" Height="29"/>
+                <TextBox x:Name="txtReprez2" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="622" Background="#ffffc1" BorderBrush="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="22" Canvas.Left="12" Canvas.Top="241"/>
+                <Label x:Name="lblNr12" HorizontalAlignment="Left" Height="25" Content="(1)" Canvas.Bottom="10" FontFamily="Times New Roman" FontSize="14" VerticalContentAlignment="Center" Canvas.Left="7"/>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="311" Margin="652,801,0,0" VerticalAlignment="Top" Width="494">
+            <Canvas x:Name="cvsNavig2" HorizontalAlignment="Center" Height="311" Width="494" Margin="0,0,0,0" VerticalAlignment="Top">
+                <Label x:Name="lblPrimireAcc2" Content="Primirea/Acceptarea ______________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="55" Canvas.Left="7"/>
+                <Label x:Name="lblSemnatura2" Content="Semnătura  ______________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="15" Canvas.Left="7"/>
+                <Image Height="100" Width="100" Source="C:\Users\Ina\OneDrive\Desktop\LS.jpg" Canvas.Bottom="1" Canvas.Right="3"/>
+
+            </Canvas>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="80" Margin="652,1112,0,0" VerticalAlignment="Top" Width="494">
+            <Canvas>
+                <Label x:Name="lblTipTrans2" Content="Tipul Transferului" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="0,29,0,17" Canvas.Left="7" />
+                <Label x:Name="lblNormal2" Content="NORMAL" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="167,5"/>
+                <Rectangle Fill="#FFF4F4F5" Height="36" Stroke="Black" Width="36" Canvas.Left="194" Canvas.Top="35"/>
+                <Label x:Name="lblUrgent2" Content="URGENT" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="282,5"/>
+                <Rectangle Fill="#FFF4F4F5" Height="36" Stroke="Black" Width="36" Canvas.Left="309" Canvas.Top="35"/>
+            </Canvas>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="195" Margin="652,1192,0,0" VerticalAlignment="Top" Width="494">
+            <Canvas>
+                <Label x:Name="lblDataEmit2" Content="Data emiterii" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,62"/>
+                <DatePicker Canvas.Left="123" Canvas.Top="64" Width="177" Height="31" FontFamily="Times New Roman" FontSize="18"/>
+                <Label x:Name="lblLinie2" Content="___________________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,100"/>
+                <Label x:Name="lblSemnaturaPlat2" Content="Semnătura plătitorului și Ștampila" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,120"/>
+                <Label x:Name="lblDataDebit2" Content="Data debitării" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,157"/>
+                <TextBox x:Name="txtDataDebi2" IsReadOnly="True" Height="28" Width="170" Background="#ffffff" BorderBrush="Black" Canvas.Left="130" Canvas.Top="160"/>
+                <Label x:Name="lblExp2" Content="EXP." FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="323,130"/>
+                <Rectangle Fill="#FFF4F4F5" Height="28" Stroke="Black" Width="40" Canvas.Bottom="5" Canvas.Right="125"/>
+                <Image Height="100" Width="100" Source="C:\Users\Ina\OneDrive\Desktop\LS.jpg" Canvas.Top="10" Canvas.Right="3"/>
+                <Label x:Name="lblVersiune2" Content="v. 2021" FontFamily="Times New Roman" FontSize="18" Canvas.Bottom="5" Canvas.Right="15"/>
+            </Canvas>
+        </Border>
+    </Grid>
+</Window>
