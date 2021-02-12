@@ -75,5 +75,404 @@ namespace first_try
         {
             //exportare ca PDF
         }
+
+        public static string NumberToWords(int number)
+        {
+            if (number == 0)
+                return "zero";
+
+            string words = "";
+
+            if ((number / 1000000) > 0)
+            {
+                words += NumberToWords(number / 1000000) + " milioane ";
+                number %= 1000000;
+            }
+
+            if ((number / 1000) > 0)
+            {
+                words += NumberToWords(number / 1000) + " mii ";
+                number %= 1000;
+            }
+
+            if ((number / 100) > 0)
+            {
+                words += NumberToWords(number / 100) + " sute ";
+                number %= 100;
+            }
+
+            if (number > 0)
+            {
+                //if (words != "")
+                  //  words += "";
+
+                var unitsMap = new[] { "zero", "unu", "doi", "trei", "patru", "cinci", "șase", "șapte", "opt", "nouă", "zece", "unsprezece", "douăsprezece", "treisprezece", "paisprezece", "cincisprezece", "șaisprezece", "șaptesprezece", "optsprezece", "nouăsprezece" };
+                var tensMap = new[] { "zero", "zece", "douăzeci", "treizeci", "patruzeci", "cincizeci", "șaizeci", "șaptezeci", "optzeci", "nouăzeci" };
+
+                if (number < 20)
+                    words += unitsMap[number];
+                else
+                {
+                    words += tensMap[number / 10];
+                    if ((number % 10) > 0)
+                        words += " și " + unitsMap[number % 10];
+                }
+            }
+
+            return words;
+        }
+
+        //ROMÂNĂ
+
+        public static int NumarDeCifre(int numar)
+        {
+
+            int NumarDeCifre = 0;
+            int numar_lucru = numar;
+            while (numar_lucru != 0)
+            {
+                numar_lucru /= 10; // impartim la zece
+                NumarDeCifre++;
+            }
+
+            if (numar == 0) NumarDeCifre++;  // avem o exceptie: cand numarul este 0 avem o cifra
+
+            return NumarDeCifre;
+
+        }
+
+        public static int RidicareLaPutere(int numar, int putere)
+        {
+
+            int calculat = 1;
+            while (putere != 0)
+            {
+                calculat *= 10; // inmultim cu zece
+                putere--;
+            }
+
+            return calculat;
+
+        }
+
+        public static int CifraDeLaPozitie(int numar, int pozitie)
+        {
+            pozitie--;
+            int divizor = RidicareLaPutere(10, pozitie);
+            return numar / divizor;  // imparte pentru a obtine cifra de la pozitie
+        }
+
+        static string[] cifre_lit = new string[] { "o", "doua", "trei", "patru", "cinci", "sase", "sapte", "opt", "noua" };
+
+        public static string CifraLaLiteral(int cifra, int numar_de_cifre, bool EsteFeminin)
+        {
+            if (numar_de_cifre == 2 && cifra == 6)  // exceptie 16 - saisprezece, 64
+                return "șai";  // sai nu sase
+
+            switch (cifra)
+            {
+                case 1:
+                    if (EsteFeminin && numar_de_cifre != 10)  // miliarde este un miliard - masculin la singular
+                        return "o";
+                    else
+                        return "un";
+                case 2:
+                    if (EsteFeminin)
+                        return "două";
+                    else
+                        return "doi";
+
+                default:
+                    if ((cifra >= 0) && ((cifra - 1) < cifre_lit.Length))
+                        return cifre_lit[cifra - 1];
+                    else
+                        return "";
+            }
+
+
+
+        }
+
+        public static bool EstePlural(int cifra)
+        {
+            if (cifra > 1)
+                return true;
+            else
+                return false;
+        }
+
+        static string[] cifre_lit2 = new string[] { "zece", "unsprezece", "doisprezece", "treisprezece", "paisprezece", "cincisprezece", "șaisprezece", "șaptesprezece", "optsprezece", "nouăsprezece" };
+
+        static string GetSprezece(int numar)
+        {
+
+            if ((numar >= 10) && ((numar - 10) < cifre_lit2.Length))
+                return cifre_lit2[numar - 10];
+            else
+                return "";
+
+        }
+
+        public static string ConversieNumarIntreg(int numar)
+        {
+            if (numar == 0) return "zero";
+
+            string construit = "";
+            int numar_de_cifre = NumarDeCifre(numar);
+            while (numar_de_cifre != 0)
+            {
+                int numar_de_la_pozitie = CifraDeLaPozitie(numar, numar_de_cifre);
+
+                if (numar_de_la_pozitie > 0)  // cifrele cu zero nu ne intereseaza
+                {
+                    bool EsteFeminin = false;
+                    bool bool_EstePlural = EstePlural(numar_de_la_pozitie);
+                    switch (numar_de_cifre)
+                    {
+                        case 10:  // miliarde
+                        case 9:  // sute de milioane
+                        case 6:  // sute de mii
+                        case 3:  // sute
+
+                            EsteFeminin = true;
+                            construit += CifraLaLiteral(numar_de_la_pozitie, numar_de_cifre, EsteFeminin) + " ";
+
+                            if (numar_de_cifre == 10)  // miliarde
+                            {
+                                if (bool_EstePlural)
+                                    construit += "miliarde ";
+                                else
+                                    construit += "miliard ";
+                            }
+                            else if (numar_de_cifre == 9 || numar_de_cifre == 6 || numar_de_cifre == 3) // sute de milioane || sute de milioane || sute
+                            {
+                                if (bool_EstePlural)
+                                    construit += "sute ";
+                                else
+                                    construit += "sută ";
+                            }
+                            break;
+
+                        case 8:  //  daca este 1 prima cifra: sprezece, altfel doua zeci de milioane
+                        case 5:  //  daca este 1 prima cifra: sprezece, altfel zeci de mii
+                        case 2:  //  daca este 1 prima cifra: sprezece, altfel zeci
+
+                            EsteFeminin = true;
+                            if (numar_de_la_pozitie == 1)
+                            {  // iau doua cifre acum
+                                int numar_de_cifre_vechi = numar_de_cifre;
+                                numar_de_cifre--;
+                                numar_de_la_pozitie = CifraDeLaPozitie(numar, numar_de_cifre);  //  int doua_numere_de_la_pozitie
+                                if (numar_de_la_pozitie > 1)
+                                    bool_EstePlural = true;
+
+                                construit += GetSprezece(numar_de_la_pozitie);
+                                if (numar_de_cifre_vechi == 8)  // (numar_de_cifre+1) deoarece am scazut 1
+                                {
+                                    if (bool_EstePlural)
+                                        construit += " milioane";
+                                    else
+                                        construit += " milion";
+                                }
+                                else if (numar_de_cifre_vechi == 5)
+                                {
+                                    if (bool_EstePlural)
+                                        construit += " mii";
+                                    else
+                                        construit += " mie";
+                                }
+                                else if (numar_de_cifre_vechi == 2)  // nu a mai ramas nimic
+                                {
+                                    construit += " ";
+                                }
+                            }
+                            else
+                            {
+                                construit += CifraLaLiteral(numar_de_la_pozitie, numar_de_cifre, EsteFeminin) + " ";
+                                if (bool_EstePlural)
+                                    construit += "zeci";
+                            }
+                            construit += " ";
+                            break;
+
+                        case 7:  // un numar singur urmat: "si numar de milioane"
+                        case 4:  // si "numar" de mii
+                        case 1:  // si "numar"
+                            EsteFeminin = false;
+                            if (bool_EstePlural)
+                                EsteFeminin = true;
+                            else if (numar_de_cifre == 7)
+                                EsteFeminin = false;
+                            else if (numar_de_cifre == 4)
+                                EsteFeminin = true;
+
+                            bool EraGol = false;
+
+                            if (construit.Length > 0)
+                                construit += "și ";
+                            else
+                                EraGol = true;
+
+                            construit += CifraLaLiteral(numar_de_la_pozitie, numar_de_cifre, EsteFeminin);
+                            if (numar_de_cifre == 7)
+                            {
+                                if (bool_EstePlural)
+                                {
+                                    if (!EraGol)
+                                        construit += " de";
+                                    construit += " milioane ";  // plural = feminin
+                                }
+                                else
+                                {
+                                    construit += " milion ";  // singular = masculin
+                                }
+                            }
+                            else if (numar_de_cifre == 4)  // si "numar" de mii
+                            {
+                                if (bool_EstePlural)
+                                {
+                                    if (!EraGol)
+                                        construit += " de";
+                                    construit += " mii ";  // plural = feminin
+                                }
+                                else
+                                {
+                                    construit += " mie ";  // singular = feminin
+                                }
+                            }
+                            else if (numar_de_cifre == 1 && (!bool_EstePlural))  // si "numar"
+                            {
+                                construit += "u";  // un + u = unu
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+
+                int ridicat = 1;
+
+                if ((numar_de_cifre - 1) > 0)  // verifica ca puterea sa fie mai mare ca zero
+                    ridicat = RidicareLaPutere(10, numar_de_cifre - 1);
+
+                int de_scazut = numar_de_la_pozitie * ridicat;  // eliminam numarul care a fost deja printat
+                numar = numar - de_scazut;
+
+                numar_de_cifre--;
+
+            }
+
+            return construit;
+
+        }
+
+        private void TextChangedNumbers(object sender, TextChangedEventArgs e)
+        {
+           // exception la backspace !!
+            
+            txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+        }
+
+        private void Nr2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtNr2.Text = txtNr.Text;
+        }
+
+        private void Platiti2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtPlatiti2.Text = txtPlatiti.Text;
+        }
+
+        private void NumarInCuv2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtNumarInCuvinte2.Text = txtNumarInCuvinte.Text;
+        }
+
+        private void Plat2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtPlat2.Text = txtPlat.Text;
+        }
+
+        private void CodPlat2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtCodPlat2.Text = txtCodPlat.Text;
+        }
+
+        private void AdresaPlat2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtAdresaPlat2.Text = txtAdresaPlat.Text;
+        }
+
+        private void IbanPlat2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtIbanPlat2.Text = txtIbanPlat.Text;
+        }
+
+        private void BicPlat2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtBicPlat2.Text = txtBicPlat.Text;
+        }
+
+        private void DeLa2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtDeLa2.Text = txtDeLa.Text;
+        }
+
+        private void Angajament2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtAngajament2.Text = txtAngajament.Text;
+        }
+
+        private void Indicator2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtIndicator2.Text = txtIndicator.Text;
+        }
+
+        private void CodProgr2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtCodProgr2.Text = txtCodProgr.Text;
+        }
+
+        private void Benef2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtBenef2.Text = txtBenef.Text;
+        }
+
+        private void CodBenef2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtCodBenef2.Text = txtCodBenef.Text;
+        }
+
+        private void IbanBenef2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtIbanBenef2.Text = txtIbanBenef.Text;
+        }
+
+        private void BicBenef2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtBicBenef2.Text = txtBicBenef.Text;
+        }
+
+        private void La2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtLa2.Text = txtLa.Text;
+        }
+
+        private void NrEvid2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtNrEvid2.Text = txtNrEvid.Text;
+        }
+
+        private void Reprez2TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtReprez2.Text = txtReprez.Text;
+        }
+
+        private void ComplBenefClick(object sender, RoutedEventArgs e)
+        {
+            ComplBenef completare = new ComplBenef();
+            completare.Show();
+        }
     }
 }
