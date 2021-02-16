@@ -8,7 +8,6 @@
         Title="" Height="1430" Width="1160" Background="#ffffff">
     <Grid Height="1430" Width="1160">
         <Button x:Name="btnComplBenef" Content="Completare secțiune BENEFICIAR" FontFamily="Times New Roman" FontSize="18" ToolTip="Ajutor în completarea secțiunii BENEFICIAR" Width="300" Height="25" Margin="230,391,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ComplBenefClick" />
-
         <Border x:Name="brdOP" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="6,24,0,0" VerticalAlignment="Top" Width="1140">
             <Canvas x:Name="cvsOP" HorizontalAlignment="Left" Height="89" Margin="-4,-1,0,-1" VerticalAlignment="Top" Width="1140">
                 <Label x:Name="lblOP" Content="ORDIN DE PLATĂ" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="32" FontWeight="Bold" FontFamily="Times New Roman" Canvas.Left="14" Canvas.Top="2"/>
@@ -76,7 +75,7 @@
 
                 <Label x:Name="lblPrimireAcc" Content="Primirea/Acceptarea ______________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="55" Canvas.Left="7"/>
                 <Label x:Name="lblSemnatura" Content="Semnătura  ______________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="15" Canvas.Left="7"/>
-                <Image Height="100" Width="100" Source="C:\Users\Ina\OneDrive\Desktop\LS.jpg" Canvas.Bottom="1" Canvas.Right="3"/>
+                <Image Height="100" Width="100" Source="C:\Users\Ina\OneDrive\Desktop\LS.jpg" Canvas.Bottom="2" Canvas.Right="3"/>
 
 
             </Canvas>
@@ -94,7 +93,7 @@
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="195" Margin="652,504,0,0" VerticalAlignment="Top" Width="494">
             <Canvas>
                 <Label x:Name="lblDataEmit" Content="Data emiterii" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,62"/>
-                <DatePicker Canvas.Left="123" Canvas.Top="64" Width="177" Height="31" FontFamily="Times New Roman" FontSize="18"/>
+                <DatePicker x:Name="dtDataEmit" Canvas.Left="123" Canvas.Top="64" Width="177" Height="31" FontFamily="Times New Roman" FontSize="18"/>
                 <Label x:Name="lblLinie" Content="___________________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,100"/>
                 <Label x:Name="lblSemnaturaPlat" Content="Semnătura plătitorului și Ștampila" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,120"/>
                 <Label x:Name="lblDataDebit" Content="Data debitării" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,157"/>
