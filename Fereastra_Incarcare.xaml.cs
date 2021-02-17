@@ -17,11 +17,99 @@ namespace first_try
     /// <summary>
     /// Interaction logic for Fereastra_Incarcare.xaml
     /// </summary>
+    /// 
+
+    enum ActionState
+    {
+        New,
+        Edit,
+        Delete,
+        Nothing
+    }
     public partial class Fereastra_Incarcare : Window
     {
+
+        ActionState action = ActionState.Nothing;
+        BazaDeDateDataSet bazaDeDateDataSet = new BazaDeDateDataSet();
+        BazaDeDateDataSetTableAdapters.DateFormIncarcareTableAdapter
+        tblDateFormAdapter = new BazaDeDateDataSetTableAdapters.DateFormIncarcareTableAdapter();
+        //header
+        Binding txtNrBinding = new Binding();
+        Binding txtPlatitiBinding = new Binding();
+        Binding txtNumarInCuvinteBinding = new Binding();
+        //platitor
+        Binding txtPlatBinding = new Binding();
+        Binding txtCodPlatBinding = new Binding();
+        Binding txtAdresaPlatBinding = new Binding();
+        Binding txtIbanPlatBinding = new Binding();
+        Binding txtBicPlatBinding = new Binding();
+        Binding txtDeLaBinding = new Binding();
+        Binding txtAngajamentBinding = new Binding();
+        Binding txtIndicatorBinding = new Binding();
+        Binding txtCodProgrBinding = new Binding();
+        //beneficiar
+        Binding txtBenefBinding = new Binding();
+        Binding txtCodBenefBinding = new Binding();
+        Binding txtIbanBenefBinding = new Binding();
+        Binding txtBicBenefBinding = new Binding();
+        Binding txtLaBinding = new Binding();
+        Binding txtNrEvidBinding = new Binding();
+        Binding txtReprezBinding = new Binding();
+        //data
+        Binding dtDataEmitBinding = new Binding();
+
         public Fereastra_Incarcare()
         {
             InitializeComponent();
+            grdIncarcare.DataContext = bazaDeDateDataSet.DateFormIncarcare;
+
+            txtNrBinding.Path = new PropertyPath("nr");
+            txtPlatitiBinding.Path = new PropertyPath("platiti");
+            txtNumarInCuvinteBinding.Path = new PropertyPath("numarInCuvinte");
+
+            txtPlatBinding.Path = new PropertyPath("plat");
+            txtCodPlatBinding.Path = new PropertyPath("codPlat");
+            txtAdresaPlatBinding.Path = new PropertyPath("adresaPlat");
+            txtIbanPlatBinding.Path = new PropertyPath("ibanPlat");
+            txtBicPlatBinding.Path = new PropertyPath("bicPlat");
+            txtDeLaBinding.Path = new PropertyPath("deLa");
+            txtAngajamentBinding.Path = new PropertyPath("angajament");
+            txtIndicatorBinding.Path = new PropertyPath("indicator");
+            txtCodProgrBinding.Path = new PropertyPath("codProgr");
+
+            txtBenefBinding.Path = new PropertyPath("benef");
+            txtCodBenefBinding.Path = new PropertyPath("codBenef");
+            txtIbanBenefBinding.Path = new PropertyPath("ibanBenef");
+            txtBicBenefBinding.Path = new PropertyPath("bicBenef");
+            txtLaBinding.Path = new PropertyPath("la");
+            txtNrEvidBinding.Path = new PropertyPath("nrEvid");
+            txtReprezBinding.Path = new PropertyPath("reprez");
+
+            dtDataEmitBinding.Path = new PropertyPath("dataEmit");
+
+            txtNr.SetBinding(TextBox.TextProperty, txtNrBinding);
+            txtPlatiti.SetBinding(TextBox.TextProperty, txtPlatitiBinding);
+            txtNumarInCuvinte.SetBinding(TextBox.TextProperty, txtNumarInCuvinteBinding);
+
+            txtPlat.SetBinding(TextBox.TextProperty, txtPlatBinding);
+            txtCodPlat.SetBinding(TextBox.TextProperty, txtCodPlatBinding);
+            txtAdresaPlat.SetBinding(TextBox.TextProperty, txtAdresaPlatBinding);
+            txtIbanPlat.SetBinding(TextBox.TextProperty, txtIbanPlatBinding);
+            txtBicPlat.SetBinding(TextBox.TextProperty, txtBicPlatBinding);
+            txtDeLa.SetBinding(TextBox.TextProperty, txtDeLaBinding);
+            txtAngajament.SetBinding(TextBox.TextProperty, txtAngajamentBinding);
+            txtIndicator.SetBinding(TextBox.TextProperty, txtIndicatorBinding);
+            txtCodProgr.SetBinding(TextBox.TextProperty, txtCodProgrBinding);
+
+            txtBenef.SetBinding(TextBox.TextProperty, txtBenefBinding);
+            txtCodBenef.SetBinding(TextBox.TextProperty, txtCodBenefBinding);
+            txtIbanBenef.SetBinding(TextBox.TextProperty, txtIbanBenefBinding);
+            txtBicBenef.SetBinding(TextBox.TextProperty, txtBicBenefBinding);
+            txtLa.SetBinding(TextBox.TextProperty, txtLaBinding);
+            txtNrEvid.SetBinding(TextBox.TextProperty, txtNrEvidBinding);
+            txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
+
+            dtDataEmit.SetBinding(TextBox.TextProperty, dtDataEmitBinding);
         }
 
         private void LegislatieClick(object sender, RoutedEventArgs e)
@@ -473,6 +561,14 @@ namespace first_try
         {
             ComplBenef completare = new ComplBenef();
             completare.Show();
+        }
+
+        private void frmIncarcare_Loaded(object sender, RoutedEventArgs e)
+        {
+            BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
+            System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
+            ((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
+            bazaDeDateViewSource.View.MoveCurrentToFirst();
         }
     }
 }
