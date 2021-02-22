@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:first_try"
         mc:Ignorable="d"
         Title="" Height="1430" Width="1160" Background="#ffffff" Loaded="frmIncarcare_Loaded">
-    <Grid x:Name="grdIncarcare" Height="1430" Width="1160">
+    <Grid x:Name="grdIncarcare" Height="1430" Width="1160" Loaded="grdIncarcare_Loaded">
         <Button x:Name="btnComplBenef" Content="Completare secțiune BENEFICIAR" FontFamily="Times New Roman" FontSize="18" ToolTip="Ajutor în completarea secțiunii BENEFICIAR" Width="300" Height="25" Margin="230,391,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ComplBenefClick" />
         <Border x:Name="brdOP" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="6,24,0,0" VerticalAlignment="Top" Width="1140">
             <Canvas x:Name="cvsOP" HorizontalAlignment="Left" Height="89" Margin="-4,-1,0,-1" VerticalAlignment="Top" Width="1140">

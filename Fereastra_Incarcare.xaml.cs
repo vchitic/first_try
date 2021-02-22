@@ -112,6 +112,24 @@ namespace first_try
             dtDataEmit.SetBinding(TextBox.TextProperty, dtDataEmitBinding);
         }
 
+        private void lstDateLoad()
+        {
+            tblDateFormAdapter.Fill(bazaDeDateDataSet.DateFormIncarcare);
+        }
+
+        private void frmIncarcare_Loaded(object sender, RoutedEventArgs e)
+        {
+            BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
+            System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
+            ((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
+            bazaDeDateViewSource.View.MoveCurrentToFirst();
+        }
+
+        private void grdIncarcare_Loaded(object sender, RoutedEventArgs e)
+        {
+            lstDateLoad();
+        }
+
         private void LegislatieClick(object sender, RoutedEventArgs e)
         {
             //deschide in notepad legistalia
@@ -563,12 +581,6 @@ namespace first_try
             completare.Show();
         }
 
-        private void frmIncarcare_Loaded(object sender, RoutedEventArgs e)
-        {
-            BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
-            System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
-            ((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
-            bazaDeDateViewSource.View.MoveCurrentToFirst();
-        }
+        
     }
 }
