@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -119,10 +120,10 @@ namespace first_try
 
         private void frmIncarcare_Loaded(object sender, RoutedEventArgs e)
         {
-            BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
-            System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
-            ((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
-            bazaDeDateViewSource.View.MoveCurrentToFirst();
+           // BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
+            //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
+            //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
+            //bazaDeDateViewSource.View.MoveCurrentToFirst();
         }
 
         private void grdIncarcare_Loaded(object sender, RoutedEventArgs e)
@@ -170,11 +171,6 @@ namespace first_try
         private void OPFVtextClick(object sender, RoutedEventArgs e)
         {
             //LOPFV.txt
-        }
-
-        private void SalvareClick(object sender, RoutedEventArgs e)
-        {
-            //salvare în bd
         }
 
         private void ExportareClick(object sender, RoutedEventArgs e)
@@ -581,6 +577,557 @@ namespace first_try
             completare.Show();
         }
 
-        
+        private void btnNew_Click(object sender, RoutedEventArgs e)
+        {
+            action = ActionState.New;
+            btnNew.IsEnabled = false;
+            btnEdit.IsEnabled = false;
+            btnDelete.IsEnabled = false;
+
+            btnSalvare.IsEnabled = true;
+
+            txtNr.IsEnabled = true;
+            txtPlatiti.IsEnabled = true;
+            txtNumarInCuvinte.IsEnabled = true;
+
+            txtPlat.IsEnabled = true;
+            txtCodPlat.IsEnabled = true;
+            txtAdresaPlat.IsEnabled = true;
+            txtIbanPlat.IsEnabled = true;
+            txtBicPlat.IsEnabled = true;
+            txtDeLa.IsEnabled = true;
+            txtAngajament.IsEnabled = true;
+            txtIndicator.IsEnabled = true;
+            txtCodProgr.IsEnabled = true;
+
+            txtBenef.IsEnabled = true;
+            txtCodBenef.IsEnabled = true;
+            txtIbanBenef.IsEnabled = true;
+            txtBicBenef.IsEnabled = true;
+            txtLa.IsEnabled = true;
+            txtNrEvid.IsEnabled = true;
+            txtReprez.IsEnabled = true;
+
+            dtDataEmit.IsEnabled = true;
+
+            BindingOperations.ClearBinding(txtNr, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtPlatiti, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtNumarInCuvinte, TextBox.TextProperty);
+
+            BindingOperations.ClearBinding(txtPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtAdresaPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIbanPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtBicPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtDeLa, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtAngajament, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIndicator, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodProgr, TextBox.TextProperty);
+
+            BindingOperations.ClearBinding(txtBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIbanBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtBicBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtLa, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtNrEvid, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtReprez, TextBox.TextProperty);
+            BindingOperations.ClearBinding(dtDataEmit, TextBox.TextProperty);
+
+            txtNr.Text = "";
+            txtPlatiti.Text = "";
+            txtNumarInCuvinte.Text = "";
+
+            txtPlat.Text = "";
+            txtCodPlat.Text = "";
+            txtAdresaPlat.Text = "";
+            txtIbanPlat.Text = "";
+            txtBicPlat.Text = "";
+            txtDeLa.Text = "";
+            txtAngajament.Text = "";
+            txtIndicator.Text = "";
+            txtCodProgr.Text = "";
+
+            txtBenef.Text = "";
+            txtCodBenef.Text = "";
+            txtIbanBenef.Text = "";
+            txtBicBenef.Text = "";
+            txtLa.Text = "";
+            txtNrEvid.Text = "";
+            txtReprez.Text = "";
+
+            dtDataEmit.Text = "";
+
+            Keyboard.Focus(txtNr);
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            action = ActionState.Edit;
+            string tempNr = txtNr.Text.ToString();
+            string tempPlatiti = txtPlatiti.Text.ToString();
+            string tempNrInCuvinte = txtNumarInCuvinte.Text.ToString();
+            string tempPlat = txtPlat.Text.ToString();
+            string tempCodPlat = txtCodPlat.Text.ToString();
+            string tempAdPlat = txtAdresaPlat.Text.ToString();
+            string tempIbanPlat = txtIbanPlat.Text.ToString();
+            string tempBicPlat = txtBicPlat.Text.ToString();
+            string tempDeLa = txtDeLa.Text.ToString();
+            string tempAngaj = txtAngajament.Text.ToString();
+            string tempIndicator = txtIndicator.Text.ToString();
+            string tempCodProgr = txtCodProgr.Text.ToString();
+
+            string tempBenef = txtBenef.Text.ToString();
+            string tempCodBenef = txtCodBenef.Text.ToString();
+            string tempIbanBenef = txtIbanBenef.Text.ToString();
+            string tempBicBenef = txtBicBenef.Text.ToString();
+            string tempLa = txtLa.Text.ToString();
+            string tempNrEvid = txtNrEvid.Text.ToString();
+            string tempReprez = txtReprez.Text.ToString();
+            string tempDataEmit = dtDataEmit.Text.ToString();
+
+            btnNew.IsEnabled = false;
+            btnEdit.IsEnabled = false;
+            btnDelete.IsEnabled = false;
+
+            btnSalvare.IsEnabled = true;
+
+            txtNr.IsEnabled = true;
+            txtPlatiti.IsEnabled = true;
+            txtNumarInCuvinte.IsEnabled = true;
+
+            txtPlat.IsEnabled = true;
+            txtCodPlat.IsEnabled = true;
+            txtAdresaPlat.IsEnabled = true;
+            txtIbanPlat.IsEnabled = true;
+            txtBicPlat.IsEnabled = true;
+            txtDeLa.IsEnabled = true;
+            txtAngajament.IsEnabled = true;
+            txtIndicator.IsEnabled = true;
+            txtCodProgr.IsEnabled = true;
+
+            txtBenef.IsEnabled = true;
+            txtCodBenef.IsEnabled = true;
+            txtIbanBenef.IsEnabled = true;
+            txtBicBenef.IsEnabled = true;
+            txtLa.IsEnabled = true;
+            txtNrEvid.IsEnabled = true;
+            txtReprez.IsEnabled = true;
+
+            dtDataEmit.IsEnabled = true;
+
+            BindingOperations.ClearBinding(txtNr, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtPlatiti, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtNumarInCuvinte, TextBox.TextProperty);
+
+            BindingOperations.ClearBinding(txtPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtAdresaPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIbanPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtBicPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtDeLa, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtAngajament, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIndicator, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodProgr, TextBox.TextProperty);
+
+            BindingOperations.ClearBinding(txtBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIbanBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtBicBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtLa, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtNrEvid, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtReprez, TextBox.TextProperty);
+            BindingOperations.ClearBinding(dtDataEmit, TextBox.TextProperty);
+
+            txtNr.Text = tempNr;
+            txtPlatiti.Text = tempPlatiti;
+            txtNumarInCuvinte.Text = tempNrInCuvinte;
+
+            txtPlat.Text = tempPlat;
+            txtCodPlat.Text = tempCodPlat;
+            txtAdresaPlat.Text = tempAdPlat;
+            txtIbanPlat.Text = tempIbanPlat;
+            txtBicPlat.Text = tempBicPlat;
+            txtDeLa.Text = tempDeLa;
+            txtAngajament.Text = tempAngaj;
+            txtIndicator.Text = tempIndicator;
+            txtCodProgr.Text = tempCodProgr;
+
+            txtBenef.Text = tempBenef;
+            txtCodBenef.Text = tempCodBenef;
+            txtIbanBenef.Text = tempIbanBenef;
+            txtBicBenef.Text = tempBicBenef;
+            txtLa.Text = tempLa;
+            txtNrEvid.Text = tempNrEvid;
+            txtReprez.Text = tempReprez;
+
+            dtDataEmit.Text = tempDataEmit;
+
+            Keyboard.Focus(txtNr);
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            action = ActionState.Delete;
+            string tempNr = txtNr.Text.ToString();
+            string tempPlatiti = txtPlatiti.Text.ToString();
+            string tempNrInCuvinte = txtNumarInCuvinte.Text.ToString();
+            string tempPlat = txtPlat.Text.ToString();
+            string tempCodPlat = txtCodPlat.Text.ToString();
+            string tempAdPlat = txtAdresaPlat.Text.ToString();
+            string tempIbanPlat = txtIbanPlat.Text.ToString();
+            string tempBicPlat = txtBicPlat.Text.ToString();
+            string tempDeLa = txtDeLa.Text.ToString();
+            string tempAngaj = txtAngajament.Text.ToString();
+            string tempIndicator = txtIndicator.Text.ToString();
+            string tempCodProgr = txtCodProgr.Text.ToString();
+
+            string tempBenef = txtBenef.Text.ToString();
+            string tempCodBenef = txtCodBenef.Text.ToString();
+            string tempIbanBenef = txtIbanBenef.Text.ToString();
+            string tempBicBenef = txtBicBenef.Text.ToString();
+            string tempLa = txtLa.Text.ToString();
+            string tempNrEvid = txtNrEvid.Text.ToString();
+            string tempReprez = txtReprez.Text.ToString();
+            string tempDataEmit = dtDataEmit.Text.ToString();
+
+            btnNew.IsEnabled = false;
+            btnEdit.IsEnabled = false;
+            btnDelete.IsEnabled = false;
+
+            btnSalvare.IsEnabled = true;
+
+            BindingOperations.ClearBinding(txtNr, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtPlatiti, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtNumarInCuvinte, TextBox.TextProperty);
+
+            BindingOperations.ClearBinding(txtPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtAdresaPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIbanPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtBicPlat, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtDeLa, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtAngajament, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIndicator, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodProgr, TextBox.TextProperty);
+
+            BindingOperations.ClearBinding(txtBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtCodBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtIbanBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtBicBenef, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtLa, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtNrEvid, TextBox.TextProperty);
+            BindingOperations.ClearBinding(txtReprez, TextBox.TextProperty);
+            BindingOperations.ClearBinding(dtDataEmit, TextBox.TextProperty);
+
+            txtNr.Text = tempNr;
+            txtPlatiti.Text = tempPlatiti;
+            txtNumarInCuvinte.Text = tempNrInCuvinte;
+
+            txtPlat.Text = tempPlat;
+            txtCodPlat.Text = tempCodPlat;
+            txtAdresaPlat.Text = tempAdPlat;
+            txtIbanPlat.Text = tempIbanPlat;
+            txtBicPlat.Text = tempBicPlat;
+            txtDeLa.Text = tempDeLa;
+            txtAngajament.Text = tempAngaj;
+            txtIndicator.Text = tempIndicator;
+            txtCodProgr.Text = tempCodProgr;
+
+            txtBenef.Text = tempBenef;
+            txtCodBenef.Text = tempCodBenef;
+            txtIbanBenef.Text = tempIbanBenef;
+            txtBicBenef.Text = tempBicBenef;
+            txtLa.Text = tempLa;
+            txtNrEvid.Text = tempNrEvid;
+            txtReprez.Text = tempReprez;
+
+            dtDataEmit.Text = tempDataEmit;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            action = ActionState.Nothing;
+            btnNew.IsEnabled = true;
+            btnEdit.IsEnabled = true;
+            btnDelete.IsEnabled = true;
+
+            btnSalvare.IsEnabled = false;
+
+            txtNr.IsEnabled = false;
+            txtPlatiti.IsEnabled = false;
+            txtNumarInCuvinte.IsEnabled = false;
+
+            txtPlat.IsEnabled = false;
+            txtCodPlat.IsEnabled = false;
+            txtAdresaPlat.IsEnabled = false;
+            txtIbanPlat.IsEnabled = false;
+            txtBicPlat.IsEnabled = false;
+            txtDeLa.IsEnabled = false;
+            txtAngajament.IsEnabled = false;
+            txtIndicator.IsEnabled = false;
+            txtCodProgr.IsEnabled = false;
+
+            txtBenef.IsEnabled = false;
+            txtCodBenef.IsEnabled = false;
+            txtIbanBenef.IsEnabled = false;
+            txtBicBenef.IsEnabled = false;
+            txtLa.IsEnabled = false;
+            txtNrEvid.IsEnabled = false;
+            txtReprez.IsEnabled = false;
+
+            dtDataEmit.IsEnabled = false;
+
+            txtNr.SetBinding(TextBox.TextProperty, txtNrBinding);
+            txtPlatiti.SetBinding(TextBox.TextProperty, txtPlatitiBinding);
+            txtNumarInCuvinte.SetBinding(TextBox.TextProperty, txtNumarInCuvinteBinding);
+            txtPlat.SetBinding(TextBox.TextProperty, txtPlatBinding);
+            txtCodPlat.SetBinding(TextBox.TextProperty, txtCodPlatBinding);
+            txtAdresaPlat.SetBinding(TextBox.TextProperty, txtAdresaPlatBinding);
+            txtIbanPlat.SetBinding(TextBox.TextProperty, txtIbanPlatBinding);
+            txtBicPlat.SetBinding(TextBox.TextProperty, txtBicPlatBinding);
+            txtDeLa.SetBinding(TextBox.TextProperty, txtDeLaBinding);
+            txtAngajament.SetBinding(TextBox.TextProperty, txtAngajamentBinding);
+            txtIndicator.SetBinding(TextBox.TextProperty, txtIndicatorBinding);
+            txtCodProgr.SetBinding(TextBox.TextProperty, txtCodProgrBinding);
+
+            txtBenef.SetBinding(TextBox.TextProperty, txtBenefBinding);
+            txtCodBenef.SetBinding(TextBox.TextProperty, txtCodBenefBinding);
+            txtIbanBenef.SetBinding(TextBox.TextProperty, txtIbanBenefBinding);
+            txtBicBenef.SetBinding(TextBox.TextProperty, txtBicBenefBinding);
+            txtLa.SetBinding(TextBox.TextProperty, txtLaBinding);
+            txtNrEvid.SetBinding(TextBox.TextProperty, txtNrEvidBinding);
+            txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
+            dtDataEmit.SetBinding(TextBox.TextProperty, dtDataEmitBinding);
+
+        }
+
+        private void btnSalvare_Click(object sender, RoutedEventArgs e)
+        {
+            if (action == ActionState.New)
+            {
+                try
+                {
+                    DataRow newRow = bazaDeDateDataSet.DateFormIncarcare.NewRow();
+                    newRow.BeginEdit();
+                    newRow["nr"] = txtNr.Text.Trim();
+                    newRow["platiti"] = txtPlatiti.Text.Trim();
+                    newRow["numarInCuvinte"] = txtNumarInCuvinte.Text.Trim();
+                    newRow["plat"] = txtPlat.Text.Trim();
+                    newRow["codPlat"] = txtCodPlat.Text.Trim();
+                    newRow["adresaPlat"] = txtAdresaPlat.Text.Trim();
+                    newRow["ibanPlat"] = txtIbanPlat.Text.Trim();
+                    newRow["bicPlat"] = txtBicPlat.Text.Trim();
+                    newRow["deLa"] = txtDeLa.Text.Trim();
+                    newRow["angajament"] = txtAngajament.Text.Trim();
+                    newRow["indicator"] = txtIndicator.Text.Trim();
+                    newRow["codProgr"] = txtCodProgr.Text.Trim();
+
+                    newRow["benef"] = txtBenef.Text.Trim();
+                    newRow["codBenef"] = txtCodBenef.Text.Trim();
+                    newRow["ibanBenef"] = txtIbanBenef.Text.Trim();
+                    newRow["bicBenef"] = txtBicBenef.Text.Trim();
+                    newRow["la"] = txtLa.Text.Trim();
+                    newRow["nrEvid"] = txtNrEvid.Text.Trim();
+                    newRow["reprez"] = txtReprez.Text.Trim();
+                    newRow["dataEmit"] = dtDataEmit.Text.Trim();
+
+                    newRow.EndEdit();
+                    bazaDeDateDataSet.DateFormIncarcare.Rows.Add(newRow);
+                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcare);
+                    bazaDeDateDataSet.AcceptChanges();
+                }
+                catch (DataException ex)
+                {
+                    bazaDeDateDataSet.RejectChanges();
+                    MessageBox.Show(ex.Message);
+                }
+
+                btnNew.IsEnabled = true;
+                btnEdit.IsEnabled = true;
+                btnSalvare.IsEnabled = false;
+                btnCancel.IsEnabled = false;
+
+                txtNr.IsEnabled = false;
+                txtPlatiti.IsEnabled = false;
+                txtNumarInCuvinte.IsEnabled = false;
+
+                txtPlat.IsEnabled = false;
+                txtCodPlat.IsEnabled = false;
+                txtAdresaPlat.IsEnabled = false;
+                txtIbanPlat.IsEnabled = false;
+                txtBicPlat.IsEnabled = false;
+                txtDeLa.IsEnabled = false;
+                txtAngajament.IsEnabled = false;
+                txtIndicator.IsEnabled = false;
+                txtCodProgr.IsEnabled = false;
+
+                txtBenef.IsEnabled = false;
+                txtCodBenef.IsEnabled = false;
+                txtIbanBenef.IsEnabled = false;
+                txtBicBenef.IsEnabled = false;
+                txtLa.IsEnabled = false;
+                txtNrEvid.IsEnabled = false;
+                txtReprez.IsEnabled = false;
+
+                dtDataEmit.IsEnabled = false;
+            }
+            else
+            if (action == ActionState.Edit)
+            {
+                try
+                {
+                    DataRow editRow = bazaDeDateDataSet.DateFormIncarcare.Rows[lstPhones.SelectedIndex];
+                    editRow.BeginEdit();
+                    editRow["nr"] = txtNr.Text.Trim();
+                    editRow["platiti"] = txtPlatiti.Text.Trim();
+                    editRow["numarInCuvinte"] = txtNumarInCuvinte.Text.Trim();
+                    editRow["plat"] = txtPlat.Text.Trim();
+                    editRow["codPlat"] = txtCodPlat.Text.Trim();
+                    editRow["adresaPlat"] = txtAdresaPlat.Text.Trim();
+                    editRow["ibanPlat"] = txtIbanPlat.Text.Trim();
+                    editRow["bicPlat"] = txtBicPlat.Text.Trim();
+                    editRow["deLa"] = txtDeLa.Text.Trim();
+                    editRow["angajament"] = txtAngajament.Text.Trim();
+                    editRow["indicator"] = txtIndicator.Text.Trim();
+                    editRow["codProgr"] = txtCodProgr.Text.Trim();
+
+                    editRow["benef"] = txtBenef.Text.Trim();
+                    editRow["codBenef"] = txtCodBenef.Text.Trim();
+                    editRow["ibanBenef"] = txtIbanBenef.Text.Trim();
+                    editRow["bicBenef"] = txtBicBenef.Text.Trim();
+                    editRow["la"] = txtLa.Text.Trim();
+                    editRow["nrEvid"] = txtNrEvid.Text.Trim();
+                    editRow["reprez"] = txtReprez.Text.Trim();
+                    editRow["dataEmit"] = dtDataEmit.Text.Trim();
+
+                    editRow.EndEdit();
+                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcare);
+                    bazaDeDateDataSet.AcceptChanges();
+                }
+                catch (DataException ex)
+                {
+                    bazaDeDateDataSet.RejectChanges();
+                    MessageBox.Show(ex.Message);
+                }
+                btnNew.IsEnabled = true;
+                btnEdit.IsEnabled = true;
+                btnDelete.IsEnabled = true;
+                btnSalvare.IsEnabled = false;
+                btnCancel.IsEnabled = false;
+
+                txtNr.IsEnabled = false;
+                txtPlatiti.IsEnabled = false;
+                txtNumarInCuvinte.IsEnabled = false;
+
+                txtPlat.IsEnabled = false;
+                txtCodPlat.IsEnabled = false;
+                txtAdresaPlat.IsEnabled = false;
+                txtIbanPlat.IsEnabled = false;
+                txtBicPlat.IsEnabled = false;
+                txtDeLa.IsEnabled = false;
+                txtAngajament.IsEnabled = false;
+                txtIndicator.IsEnabled = false;
+                txtCodProgr.IsEnabled = false;
+
+                txtBenef.IsEnabled = false;
+                txtCodBenef.IsEnabled = false;
+                txtIbanBenef.IsEnabled = false;
+                txtBicBenef.IsEnabled = false;
+                txtLa.IsEnabled = false;
+                txtNrEvid.IsEnabled = false;
+                txtReprez.IsEnabled = false;
+
+                dtDataEmit.IsEnabled = false;
+
+                txtNr.SetBinding(TextBox.TextProperty, txtNrBinding);
+                txtPlatiti.SetBinding(TextBox.TextProperty, txtPlatitiBinding);
+                txtNumarInCuvinte.SetBinding(TextBox.TextProperty, txtNumarInCuvinteBinding);
+                txtPlat.SetBinding(TextBox.TextProperty, txtPlatBinding);
+                txtCodPlat.SetBinding(TextBox.TextProperty, txtCodPlatBinding);
+                txtAdresaPlat.SetBinding(TextBox.TextProperty, txtAdresaPlatBinding);
+                txtIbanPlat.SetBinding(TextBox.TextProperty, txtIbanPlatBinding);
+                txtBicPlat.SetBinding(TextBox.TextProperty, txtBicPlatBinding);
+                txtDeLa.SetBinding(TextBox.TextProperty, txtDeLaBinding);
+                txtAngajament.SetBinding(TextBox.TextProperty, txtAngajamentBinding);
+                txtIndicator.SetBinding(TextBox.TextProperty, txtIndicatorBinding);
+                txtCodProgr.SetBinding(TextBox.TextProperty, txtCodProgrBinding);
+
+                txtBenef.SetBinding(TextBox.TextProperty, txtBenefBinding);
+                txtCodBenef.SetBinding(TextBox.TextProperty, txtCodBenefBinding);
+                txtIbanBenef.SetBinding(TextBox.TextProperty, txtIbanBenefBinding);
+                txtBicBenef.SetBinding(TextBox.TextProperty, txtBicBenefBinding);
+                txtLa.SetBinding(TextBox.TextProperty, txtLaBinding);
+                txtNrEvid.SetBinding(TextBox.TextProperty, txtNrEvidBinding);
+                txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
+                dtDataEmit.SetBinding(TextBox.TextProperty, dtDataEmitBinding);
+            }
+            else
+            if (action == ActionState.Delete)
+            {
+                try
+                {
+                    DataRow deleterow = bazaDeDateDataSet.DateFormIncarcare.Rows[lstPhones.SelectedIndex];
+                    deleterow.Delete();
+                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcare);
+                    bazaDeDateDataSet.AcceptChanges();
+                }
+                catch (DataException ex)
+                {
+                    bazaDeDateDataSet.RejectChanges(); MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message);
+                }
+                btnNew.IsEnabled = true;
+                btnEdit.IsEnabled = true;
+                btnDelete.IsEnabled = true;
+                btnSalvare.IsEnabled = false;
+                btnCancel.IsEnabled = false;
+
+                txtNr.IsEnabled = false;
+                txtPlatiti.IsEnabled = false;
+                txtNumarInCuvinte.IsEnabled = false;
+
+                txtPlat.IsEnabled = false;
+                txtCodPlat.IsEnabled = false;
+                txtAdresaPlat.IsEnabled = false;
+                txtIbanPlat.IsEnabled = false;
+                txtBicPlat.IsEnabled = false;
+                txtDeLa.IsEnabled = false;
+                txtAngajament.IsEnabled = false;
+                txtIndicator.IsEnabled = false;
+                txtCodProgr.IsEnabled = false;
+
+                txtBenef.IsEnabled = false;
+                txtCodBenef.IsEnabled = false;
+                txtIbanBenef.IsEnabled = false;
+                txtBicBenef.IsEnabled = false;
+                txtLa.IsEnabled = false;
+                txtNrEvid.IsEnabled = false;
+                txtReprez.IsEnabled = false;
+
+                dtDataEmit.IsEnabled = false;
+
+                txtNr.SetBinding(TextBox.TextProperty, txtNrBinding);
+                txtPlatiti.SetBinding(TextBox.TextProperty, txtPlatitiBinding);
+                txtNumarInCuvinte.SetBinding(TextBox.TextProperty, txtNumarInCuvinteBinding);
+                txtPlat.SetBinding(TextBox.TextProperty, txtPlatBinding);
+                txtCodPlat.SetBinding(TextBox.TextProperty, txtCodPlatBinding);
+                txtAdresaPlat.SetBinding(TextBox.TextProperty, txtAdresaPlatBinding);
+                txtIbanPlat.SetBinding(TextBox.TextProperty, txtIbanPlatBinding);
+                txtBicPlat.SetBinding(TextBox.TextProperty, txtBicPlatBinding);
+                txtDeLa.SetBinding(TextBox.TextProperty, txtDeLaBinding);
+                txtAngajament.SetBinding(TextBox.TextProperty, txtAngajamentBinding);
+                txtIndicator.SetBinding(TextBox.TextProperty, txtIndicatorBinding);
+                txtCodProgr.SetBinding(TextBox.TextProperty, txtCodProgrBinding);
+
+                txtBenef.SetBinding(TextBox.TextProperty, txtBenefBinding);
+                txtCodBenef.SetBinding(TextBox.TextProperty, txtCodBenefBinding);
+                txtIbanBenef.SetBinding(TextBox.TextProperty, txtIbanBenefBinding);
+                txtBicBenef.SetBinding(TextBox.TextProperty, txtBicBenefBinding);
+                txtLa.SetBinding(TextBox.TextProperty, txtLaBinding);
+                txtNrEvid.SetBinding(TextBox.TextProperty, txtNrEvidBinding);
+                txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
+                dtDataEmit.SetBinding(TextBox.TextProperty, dtDataEmitBinding);
+            }
+        }
     }
 }
