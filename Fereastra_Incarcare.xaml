@@ -69,6 +69,9 @@
                         <Button x:Name="btnEdit" Content="Edit" Click="btnEdit_Click" />
                         <Button x:Name="btnDelete" Content="Delete" Click="btnDelete_Click" />
                         <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" />
+                        <ListBox x:Name="lstDate"/>
+                        <Button x:Name="btnPrevious" Content="Previous" Click="btnPrevious_Click" />
+                        <Button x:Name="btnNext" Content="Next" Click="btnNext_Click" />
                         <Button x:Name="btnLegislatie" Content="Legislație" ToolTip="Legislație" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="12" Canvas.Left="15" Click="LegislatieClick"/>
                         <Button x:Name="btnInstr" Content="Instrucțiuni" ToolTip="Instrucțiuni de lucru" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="47" Canvas.Left="15" Click="InstrClick"/>
                         <Button x:Name="btnInfUtile" Content="Inf. Utile" ToolTip="Informații utile" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="47" Canvas.Left="125" Click="InfUtile"/>

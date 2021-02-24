@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -585,6 +586,10 @@ namespace first_try
             btnDelete.IsEnabled = false;
 
             btnSalvare.IsEnabled = true;
+            btnCancel.IsEnabled = true;
+            lstDate.IsEnabled = false;
+            btnPrevious.IsEnabled = false;
+            btnNext.IsEnabled = false;
 
             txtNr.IsEnabled = true;
             txtPlatiti.IsEnabled = true;
@@ -690,6 +695,10 @@ namespace first_try
             btnDelete.IsEnabled = false;
 
             btnSalvare.IsEnabled = true;
+            btnCancel.IsEnabled = true;
+            lstDate.IsEnabled = false;
+            btnPrevious.IsEnabled = false;
+            btnNext.IsEnabled = false;
 
             txtNr.IsEnabled = true;
             txtPlatiti.IsEnabled = true;
@@ -795,6 +804,10 @@ namespace first_try
             btnDelete.IsEnabled = false;
 
             btnSalvare.IsEnabled = true;
+            btnCancel.IsEnabled = true;
+            lstDate.IsEnabled = false;
+            btnPrevious.IsEnabled = false;
+            btnNext.IsEnabled = false;
 
             BindingOperations.ClearBinding(txtNr, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtPlatiti, TextBox.TextProperty);
@@ -852,6 +865,10 @@ namespace first_try
             btnDelete.IsEnabled = true;
 
             btnSalvare.IsEnabled = false;
+            btnCancel.IsEnabled = false;
+            lstDate.IsEnabled = true;
+            btnPrevious.IsEnabled = true;
+            btnNext.IsEnabled = true;
 
             txtNr.IsEnabled = false;
             txtPlatiti.IsEnabled = false;
@@ -946,6 +963,9 @@ namespace first_try
                 btnEdit.IsEnabled = true;
                 btnSalvare.IsEnabled = false;
                 btnCancel.IsEnabled = false;
+                lstDate.IsEnabled = true;
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = true;
 
                 txtNr.IsEnabled = false;
                 txtPlatiti.IsEnabled = false;
@@ -976,7 +996,7 @@ namespace first_try
             {
                 try
                 {
-                    DataRow editRow = bazaDeDateDataSet.DateFormIncarcare.Rows[lstPhones.SelectedIndex];
+                    DataRow editRow = bazaDeDateDataSet.DateFormIncarcare.Rows[lstDate.SelectedIndex];
                     editRow.BeginEdit();
                     editRow["nr"] = txtNr.Text.Trim();
                     editRow["platiti"] = txtPlatiti.Text.Trim();
@@ -1014,6 +1034,9 @@ namespace first_try
                 btnDelete.IsEnabled = true;
                 btnSalvare.IsEnabled = false;
                 btnCancel.IsEnabled = false;
+                lstDate.IsEnabled = true;
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = true;
 
                 txtNr.IsEnabled = false;
                 txtPlatiti.IsEnabled = false;
@@ -1066,7 +1089,7 @@ namespace first_try
             {
                 try
                 {
-                    DataRow deleterow = bazaDeDateDataSet.DateFormIncarcare.Rows[lstPhones.SelectedIndex];
+                    DataRow deleterow = bazaDeDateDataSet.DateFormIncarcare.Rows[lstDate.SelectedIndex];
                     deleterow.Delete();
                     tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcare);
                     bazaDeDateDataSet.AcceptChanges();
@@ -1081,6 +1104,9 @@ namespace first_try
                 btnDelete.IsEnabled = true;
                 btnSalvare.IsEnabled = false;
                 btnCancel.IsEnabled = false;
+                lstDate.IsEnabled = true;
+                btnPrevious.IsEnabled = true;
+                btnNext.IsEnabled = true;
 
                 txtNr.IsEnabled = false;
                 txtPlatiti.IsEnabled = false;
@@ -1128,6 +1154,20 @@ namespace first_try
                 txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
                 dtDataEmit.SetBinding(TextBox.TextProperty, dtDataEmitBinding);
             }
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            ICollectionView navigationView =
+             CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
+            navigationView.MoveCurrentToPrevious();
+        }
+
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+            ICollectionView navigationView =
+             CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
+            navigationView.MoveCurrentToNext();
         }
     }
 }
