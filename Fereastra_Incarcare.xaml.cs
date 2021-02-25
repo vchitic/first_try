@@ -121,10 +121,10 @@ namespace first_try
 
         private void frmIncarcare_Loaded(object sender, RoutedEventArgs e)
         {
-           // BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
-            //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
-            //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
-            //bazaDeDateViewSource.View.MoveCurrentToFirst();
+           //BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
+           //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
+           //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
+           //bazaDeDateViewSource.View.MoveCurrentToFirst();
         }
 
         private void grdIncarcare_Loaded(object sender, RoutedEventArgs e)
