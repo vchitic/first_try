@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:first_try"
         mc:Ignorable="d"
-        Title="" Height="1430" Width="1160" Background="#ffffff" Loaded="frmIncarcare_Loaded">
+        Title="" Height="1430" Width="1160" Background="#ffffff" Loaded="frmIncarcare_Loaded" ResizeMode="NoResize" WindowStartupLocation="Manual">
     <Window.Resources>
         <DataTemplate x:Key="DateTemplate">
             <Grid>
@@ -77,29 +77,30 @@
         </Border>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="311" Margin="652,113,0,0" VerticalAlignment="Top" Width="494">
             <Canvas x:Name="cvsNavig" HorizontalAlignment="Center" Height="311" Width="494" Margin="0,0,0,0" VerticalAlignment="Top">
-                <GroupBox x:Name="gbButoane" Width="415" Height="115" Canvas.Left="38" Canvas.Top="22">
-                    <Canvas x:Name="cvsButoane" Width="415" Height="115" Margin="-6,-2,-6,-5">
-                        <Button x:Name="btnNew" Content="New" Click="btnNew_Click" />
-                        <Button x:Name="btnEdit" Content="Edit" Click="btnEdit_Click" />
-                        <Button x:Name="btnDelete" Content="Delete" Click="btnDelete_Click" />
-                        <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" />
+                <GroupBox x:Name="gbButoane" Width="415" Height="192" Canvas.Left="38" Canvas.Top="15">
+                    <Canvas x:Name="cvsButoane" Width="415" Height="192" Margin="-6,-2,-6,-5">
+                        <Button x:Name="btnNew" Content="Creare" Click="btnNew_Click" ToolTip="Creare formular nou" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="12" Canvas.Left="15"/>
+                        <Button x:Name="btnEdit" Content="Editare" Click="btnEdit_Click" ToolTip="Editare formular" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="12" Canvas.Left="125"/>
+                        <Button x:Name="btnDelete" Content="Ștergere" Click="btnDelete_Click" ToolTip="Ștergere formular" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="12" Canvas.Left="232"/>
+                        <Button x:Name="btnCancel" Content="Anulare" Click="btnCancel_Click" ToolTip="Anulare acțiuni" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="48" Canvas.Left="15"/>
                         <ListBox x:Name="lstDate" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" ItemTemplate="{StaticResource ResourceKey=DateTemplate}" Canvas.Left="50" Canvas.Top="120"/>
-                        <Button x:Name="btnPrevious" Content="Previous" Click="btnPrevious_Click" />
-                        <Button x:Name="btnNext" Content="Next" Click="btnNext_Click" />
-                        <Button x:Name="btnLegislatie" Content="Legislație" ToolTip="Legislație" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="12" Canvas.Left="15" Click="LegislatieClick"/>
-                        <Button x:Name="btnInstr" Content="Instrucțiuni" ToolTip="Instrucțiuni de lucru" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="47" Canvas.Left="15" Click="InstrClick"/>
-                        <Button x:Name="btnInfUtile" Content="Inf. Utile" ToolTip="Informații utile" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="47" Canvas.Left="125" Click="InfUtile"/>
-                        <Button x:Name="btnSugestii" Content="Sugestii" ToolTip="Sugestii" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="82" Canvas.Left="15" Click="SugestiiClick"/>
-                        <Button x:Name="btnFisierDate" Content="Fișier Date" ToolTip="Vizualizare fișier date încărcate" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="82" Canvas.Left="125" Click="FisierDateClick"/>
-                        <Button x:Name="btnFondMediu" Content="Fondul pt. mediu" ToolTip="Completare automată pentru taxe Fond de Mediu" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="140" FontSize="18" Canvas.Top="82" Canvas.Left="232" Click="FondMediuClick"/>
-                        <Button x:Name="btnOPFVtext" Content="OP/FV - imagine text" ToolTip="Listare sub Notepad" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="165" FontSize="18" Canvas.Top="47" Canvas.Left="232" Click="OPFVtextClick"/>
-                        <Button x:Name="btnSalvare" Content="Salvare" ToolTip="Salvare" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="12" Canvas.Left="125" Click="btnSalvare_Click"/>
-                        <Button x:Name="btnExportare" Content="Exportare PDF" ToolTip="Exportare în format PDF" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="140" FontSize="18" Canvas.Top="12" Canvas.Left="232" Click="ExportareClick"/>
+                        <Button x:Name="btnPrevious" Content="Anterior" Click="btnPrevious_Click" ToolTip="Formularul anterior" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="48" Canvas.Left="125"/>
+                        <Button x:Name="btnNext" Content="Următor" Click="btnNext_Click" ToolTip="Formularul următor" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="48" Canvas.Left="232"/>
+                        <Button x:Name="btnLegislatie" Content="Legislație" ToolTip="Legislație" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="84" Canvas.Left="15" Click="LegislatieClick"/>
+                        <Button x:Name="btnInstr" Content="Instrucțiuni" ToolTip="Instrucțiuni de lucru" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="119" Canvas.Left="15" Click="InstrClick"/>
+                        <Button x:Name="btnInfUtile" Content="Inf. Utile" ToolTip="Informații utile" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="119" Canvas.Left="125" Click="InfUtile"/>
+                        <Button x:Name="btnSugestii" Content="Sugestii" ToolTip="Sugestii" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="154" Canvas.Left="15" Click="SugestiiClick"/>
+                        <Button x:Name="btnFisierDate" Content="Fișier Date" ToolTip="Vizualizare fișier date încărcate" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="154" Canvas.Left="125" Click="FisierDateClick"/>
+                        <Button x:Name="btnFondMediu" Content="Fondul pt. mediu" ToolTip="Completare automată pentru taxe Fond de Mediu" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="140" FontSize="18" Canvas.Top="154" Canvas.Left="232" Click="FondMediuClick"/>
+                        <Button x:Name="btnOPFVtext" Content="OP/FV - imagine text" ToolTip="Listare sub Notepad" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="165" FontSize="18" Canvas.Top="119" Canvas.Left="232" Click="OPFVtextClick"/>
+                        <Button x:Name="btnSalvare" Content="Salvare" ToolTip="Salvare" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="84" Canvas.Left="125" Click="btnSalvare_Click"/>
+                        <Button x:Name="btnExportare" Content="Exportare PDF" ToolTip="Exportare în format PDF" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="140" FontSize="18" Canvas.Top="84" Canvas.Left="232" Click="ExportareClick"/>
+                        <Image x:Name="imgCodDeBare" />
                     </Canvas>
                 </GroupBox>
                 <Label x:Name="lblPrimireAcc" Content="Primirea/Acceptarea ______________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="55" Canvas.Left="7"/>
                 <Label x:Name="lblSemnatura" Content="Semnătura  ______________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="15" Canvas.Left="7"/>
-                <Image Height="100" Width="100" Source="C:\Users\Ina\OneDrive\Desktop\LS.jpg" Canvas.Bottom="2" Canvas.Right="3"/>
+                <Image Height="100" Width="100" Source="LS.jpg" Canvas.Bottom="2" Canvas.Right="3"/>
 
 
             </Canvas>
@@ -124,7 +125,7 @@
                 <TextBox x:Name="txtDataDebi" IsReadOnly="True" Height="28" Width="170" Background="#ffffff" BorderBrush="Black" Canvas.Left="130" Canvas.Top="160"/>
                 <Label x:Name="lblExp" Content="EXP." FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="323,130"/>
                 <Rectangle Fill="#FFF4F4F5" Height="28" Stroke="Black" Width="40" Canvas.Bottom="5" Canvas.Right="125"/>
-                <Image Height="100" Width="100" Source="C:\Users\Ina\OneDrive\Desktop\LS.jpg" Canvas.Top="10" Canvas.Right="3"/>
+                <Image Height="100" Width="100" Source="LS.jpg" Canvas.Top="10" Canvas.Right="3"/>
                 <Label x:Name="lblVersiune" Content="v. 2021" FontFamily="Times New Roman" FontSize="18" Canvas.Bottom="5" Canvas.Right="15"/>
             </Canvas>
         </Border>

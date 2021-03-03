@@ -177,6 +177,7 @@ namespace first_try
         private void ExportareClick(object sender, RoutedEventArgs e)
         {
             //exportare ca PDF
+           
         }
 
         public static string NumberToWords(int number)

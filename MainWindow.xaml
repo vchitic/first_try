@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:first_try"
         mc:Ignorable="d"
-        Title="OPFV" Height="454" Width="804">
+        Title="OPFV" Height="454" Width="804" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FFEA9A9A">
         <Button x:Name="StergeButton" Content="Șterge OP/FV-urile" HorizontalAlignment="Left" Margin="66,104,0,0" VerticalAlignment="Top" Width="161" Background="#FFFDC70F" Height="49" Click="StergeClick" BorderBrush="#FF040000" FontSize="18" ToolTip="Șterge toate OP/FV-urile încărcate"/>
         <Button x:Name="LegislatieButton" Content="Legislație" HorizontalAlignment="Left" Margin="201,217,0,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" Click="LegislatieClick" FontSize="18" Height="30" VerticalContentAlignment="Top" BorderThickness="1"/>
