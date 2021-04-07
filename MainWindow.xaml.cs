@@ -97,10 +97,20 @@ namespace first_try
 
         }
 
+        
         private void Incarcare_Click(object sender, RoutedEventArgs e)
         {
             Fereastra_Incarcare incarcare = new Fereastra_Incarcare();
-            incarcare.Show();
+            Fereastra_Incarcare_FV incarcare_FV = new Fereastra_Incarcare_FV();
+            if ((bool)OPRadiobtn.IsChecked)
+            {
+                incarcare.Show();
+
+            } else
+            {
+                incarcare_FV.Show();
+            }
+
         }
     }
 }
