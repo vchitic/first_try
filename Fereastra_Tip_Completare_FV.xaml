@@ -1,0 +1,15 @@
+﻿<Window x:Class="first_try.Fereastra_Tip_Completare_FV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:first_try"
+        mc:Ignorable="d"
+        Title="Tip Completare Date" Height="250" Width="500" Background="#FFF3BEBE">
+    <Grid>
+        <TextBox x:Name="txtCompletareFV" BorderThickness="0" Margin="0,50,0,0" TextWrapping="Wrap" Text="Cum doriți să completați formularul Foii de Vărsământ?" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="#FFF3BEBE" SelectionBrush="{x:Null}" Background="#FFF3BEBE" FontSize="18"/>
+        <Button x:Name="btnComplAutFV" Content="Automat" Width="100" Height="40" Margin="110,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" ToolTip="Completarea automată se realizează prin importarea unui Excel cu datele necesare" Click="btnComplAutFV_Click"/>
+        <Button x:Name="btnComplManFV" Content="Manual" Width="100" Height="40" Margin="0,30,110,0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnComplManFV_Click"/>
+
+    </Grid>
+</Window>

@@ -100,15 +100,20 @@ namespace first_try
         
         private void Incarcare_Click(object sender, RoutedEventArgs e)
         {
-            Fereastra_Incarcare incarcare = new Fereastra_Incarcare();
-            Fereastra_Incarcare_FV incarcare_FV = new Fereastra_Incarcare_FV();
+            //Fereastra_Incarcare incarcare_OP = new Fereastra_Incarcare();
+            //Fereastra_Incarcare_FV incarcare_FV = new Fereastra_Incarcare_FV();
+            Fereastra_Tip_Completare_OP incarcare_completare_OP = new Fereastra_Tip_Completare_OP();
+            Fereastra_Tip_Completare_FV incarcare_completare_FV = new Fereastra_Tip_Completare_FV();
+
             if ((bool)OPRadiobtn.IsChecked)
             {
-                incarcare.Show();
+                incarcare_completare_OP.Show();
+                //incarcare_OP.Show();
 
             } else
             {
-                incarcare_FV.Show();
+                incarcare_completare_FV.Show();
+                //incarcare_FV.Show();
             }
 
         }

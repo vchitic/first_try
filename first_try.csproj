@@ -107,6 +107,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Fereastra_Tip_Completare_FV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Fereastra_Tip_Completare_OP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -143,6 +151,12 @@
     </Compile>
     <Compile Include="Fereastra_Sugestii.xaml.cs">
       <DependentUpon>Fereastra_Sugestii.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Fereastra_Tip_Completare_FV.xaml.cs">
+      <DependentUpon>Fereastra_Tip_Completare_FV.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Fereastra_Tip_Completare_OP.xaml.cs">
+      <DependentUpon>Fereastra_Tip_Completare_OP.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
