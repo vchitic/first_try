@@ -33,7 +33,9 @@ namespace first_try
 
         private void btnComplAutFV_Click(object sender, RoutedEventArgs e)
         {
-
+            Formular_Import_FV formular_Import_FV = new Formular_Import_FV();
+            formular_Import_FV.Show();
+            this.Close();
         }
     }
 }

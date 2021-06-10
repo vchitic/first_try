@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:first_try"
         mc:Ignorable="d"
-        Title="Tip Completare Date" Height="250" Width="500" Background="#FFF3BEBE">
+        Title="Tip Completare Date" Height="250" Width="500" Background="#FFF3BEBE" HorizontalAlignment="Center" VerticalAlignment="Center" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox x:Name="txtCompletareOP" BorderThickness="0" Margin="0,50,0,0" TextWrapping="Wrap" Text="Cum doriți să completați formularul Ordinului de Plată?" VerticalAlignment="Top" HorizontalAlignment="Center" BorderBrush="#FFF3BEBE" SelectionBrush="{x:Null}" Background="#FFF3BEBE" FontSize="18"/>
-        <Button x:Name="btnComplAutOP" Content="Automat" Width="100" Height="40" Margin="110,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" ToolTip="Completarea automată se realizează prin importarea unui Excel cu datele necesare"/>
+        <Button x:Name="btnComplAutOP" Content="Automat" Width="100" Height="40" Margin="110,30,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" ToolTip="Completarea automată se realizează prin importarea unui Excel cu datele necesare" Click="btnComplAutOP_Click"/>
         <Button x:Name="btnComplManOP" Content="Manual" Width="100" Height="40" Margin="0,30,110,0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="btnComplManOP_Click"/>
 
     </Grid>

@@ -30,5 +30,12 @@ namespace first_try
             incarcare_OP.Show();
             this.Close();
         }
+
+        private void btnComplAutOP_Click(object sender, RoutedEventArgs e)
+        {
+            Formular_Import_OP formular_Import_OP = new Formular_Import_OP();
+            formular_Import_OP.Show();
+            this.Close();
+        }
     }
 }
