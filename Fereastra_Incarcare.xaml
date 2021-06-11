@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:first_try"
         mc:Ignorable="d"
-        Title="" Background="#ffffff" Loaded="frmIncarcare_Loaded" ResizeMode="NoResize" WindowStartupLocation="Manual" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Top" SizeToContent="WidthAndHeight" ScrollViewer.CanContentScroll="True">
+        Title="" Background="#ffffff" Loaded="frmIncarcare_Loaded" ResizeMode="NoResize" WindowStartupLocation="Manual" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Top" SizeToContent="WidthAndHeight" ScrollViewer.CanContentScroll="True" OpacityMask="Black" AllowsTransparency="True" WindowStyle="None">
         <Window.Resources>
             <DataTemplate x:Key="DateTemplate">
                 <Grid>
