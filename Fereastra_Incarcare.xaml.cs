@@ -122,10 +122,11 @@ namespace first_try
 
         private void frmIncarcare_Loaded(object sender, RoutedEventArgs e)
         {
-           //BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
-           //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
-           //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
-           //bazaDeDateViewSource.View.MoveCurrentToFirst();
+            //BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
+            //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
+            //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
+            //bazaDeDateViewSource.View.MoveCurrentToFirst();
+            this.Top = 0;
         }
 
         private void grdIncarcare_Loaded(object sender, RoutedEventArgs e)
@@ -186,7 +187,7 @@ namespace first_try
                 PrintDialog printDialog = new PrintDialog();
                 if(printDialog.ShowDialog() == true)
                 {
-                    printDialog.PrintVisual(frmIncarcare, "OP");
+                    printDialog.PrintVisual(grdIncarcare, "OP");
                 }
             }
             finally
