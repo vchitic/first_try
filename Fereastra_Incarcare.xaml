@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:first_try"
         mc:Ignorable="d"
-        Title="" Height="1430" Width="1160" Background="#ffffff" Loaded="frmIncarcare_Loaded" ResizeMode="NoResize" WindowStartupLocation="Manual">
+        Title="" Height="1430" Width="1160" Background="#ffffff" Loaded="frmIncarcare_Loaded" ResizeMode="NoResize" WindowStartupLocation="Manual" ScrollViewer.HorizontalScrollBarVisibility="Visible" SizeToContent="WidthAndHeight">
     <Window.Resources>
         <DataTemplate x:Key="DateTemplate">
             <Grid>

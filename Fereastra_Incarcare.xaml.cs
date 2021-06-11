@@ -178,6 +178,7 @@ namespace first_try
         private void ExportareClick(object sender, RoutedEventArgs e)
         {
             //exportare ca PDF
+            gbButoane.Visibility = System.Windows.Visibility.Hidden;
             try
             {
                 this.IsEnabled = false;
@@ -192,6 +193,8 @@ namespace first_try
             {
                 this.IsEnabled = true;
             }
+
+            gbButoane.Visibility = System.Windows.Visibility.Hidden;
            
         }
 
