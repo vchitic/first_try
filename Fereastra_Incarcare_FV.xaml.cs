@@ -118,10 +118,12 @@ namespace first_try
 
         private void frmIncarcareFV_Loaded(object sender, RoutedEventArgs e)
         {
-           //BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
-           //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
-           //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
-           //bazaDeDateViewSource.View.MoveCurrentToFirst();
+            //BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
+            //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
+            //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
+            //bazaDeDateViewSource.View.MoveCurrentToFirst();
+
+            this.Top = 0;
         }
 
         private void grdIncarcareFV_Loaded(object sender, RoutedEventArgs e)
@@ -174,7 +176,23 @@ namespace first_try
         private void ExportareClick(object sender, RoutedEventArgs e)
         {
             //exportare ca PDF
-           
+            btnComplBenef.Visibility = System.Windows.Visibility.Hidden;
+            gbButoane.Visibility = System.Windows.Visibility.Hidden;
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(grdIncarcareFV, "FV");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
+
         }
 
         public static string NumberToWords(int number)
