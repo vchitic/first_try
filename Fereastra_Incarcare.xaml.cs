@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Graph;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -177,8 +178,24 @@ namespace first_try
         private void ExportareClick(object sender, RoutedEventArgs e)
         {
             //exportare ca PDF
+            try
+            {
+                this.IsEnabled = false;
+
+                PrintDialog printDialog = new PrintDialog();
+                if(printDialog.ShowDialog() == true)
+                {
+                    printDialog.PrintVisual(frmIncarcare, "OP");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
            
         }
+
+
 
         public static string NumberToWords(int number)
         {
@@ -266,7 +283,7 @@ namespace first_try
             return numar / divizor;  // imparte pentru a obtine cifra de la pozitie
         }
 
-        static string[] cifre_lit = new string[] { "o", "doua", "trei", "patru", "cinci", "sase", "sapte", "opt", "noua" };
+        static string[] cifre_lit = new string[] { "o", "două", "trei", "patru", "cinci", "șase", "șapte", "opt", "nouă" };
 
         public static string CifraLaLiteral(int cifra, int numar_de_cifre, bool EsteFeminin)
         {
