@@ -109,6 +109,7 @@ namespace first_try
             txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
 
             dtDataEmit.SetBinding(TextBox.TextProperty, dtDataEmitBinding);
+
         }
 
         private void lstDateLoad()
