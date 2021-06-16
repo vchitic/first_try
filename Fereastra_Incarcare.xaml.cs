@@ -126,7 +126,9 @@ namespace first_try
             //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
             //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
             //bazaDeDateViewSource.View.MoveCurrentToFirst();
-            
+            ICollectionView navigationView =
+             CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
+            navigationView.MoveCurrentToFirst();
             this.Top = 0;
         }
 
@@ -494,9 +496,12 @@ namespace first_try
 
         private void TextChangedNumbers(object sender, TextChangedEventArgs e)
         {
-           // exception la backspace !!
-            
-            txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+            // exception la backspace !!
+
+            if (txtPlatiti.Text != "")
+            {
+                txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+            }
         }
 
         private void Nr2TextChanged(object sender, TextChangedEventArgs e)
@@ -1187,15 +1192,33 @@ namespace first_try
         {
             ICollectionView navigationView =
              CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
-            navigationView.MoveCurrentToPrevious();
+
+            if (!navigationView.MoveCurrentToPrevious())
+            {
+                navigationView.MoveCurrentToLast();
+            }
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             ICollectionView navigationView =
              CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
-            navigationView.MoveCurrentToNext();
+            
+            if (!navigationView.MoveCurrentToNext())
+            {
+                navigationView.MoveCurrentToFirst();
+            }
+
         }
 
+        private void txtNumarInCuvinte_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtPlatiti.Text != "")
+            {
+                txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+            }
+
+            
+        }
     }
 }

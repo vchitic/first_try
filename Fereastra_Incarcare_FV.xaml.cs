@@ -1111,14 +1111,20 @@ namespace first_try
         {
             ICollectionView navigationView =
              CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
-            navigationView.MoveCurrentToPrevious();
+            if (!navigationView.MoveCurrentToPrevious())
+            {
+                navigationView.MoveCurrentToLast();
+            }
         }
 
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             ICollectionView navigationView =
              CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
-            navigationView.MoveCurrentToNext();
+            if (!navigationView.MoveCurrentToNext())
+            {
+                navigationView.MoveCurrentToFirst();
+            }
         }
 
        
