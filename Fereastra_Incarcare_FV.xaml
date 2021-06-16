@@ -98,7 +98,7 @@
             <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="195" Margin="652,504,0,0" VerticalAlignment="Top" Width="494">
                 <Canvas>
                     <Label x:Name="lblDataEmit" Content="Data emiterii" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,62"/>
-                    <DatePicker x:Name="dtDataEmit" Canvas.Left="123" Canvas.Top="64" Width="177" Height="31" FontFamily="Times New Roman" FontSize="18" Text="{Binding Path=dataEmit}"/>
+                    <TextBox x:Name="dtDataEmit" Canvas.Left="123" Canvas.Top="62" Width="177" Height="31" FontFamily="Times New Roman" FontSize="18" Text="{Binding Path=dataEmit}"/>
                     <Label x:Name="lblLinie" Content="___________________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,100"/>
                     <Label x:Name="lblSemnaturaPlat" Content="Semnătura plătitorului și Ștampila" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,120"/>
                     <Label x:Name="lblDataDebit" Content="Data debitării" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,157"/>
@@ -161,7 +161,7 @@
                 <Canvas Margin="0,391">
                     <Label x:Name="lblValDecl" Content="(1-OP cu valoare de declarație)" FontFamily="Times New Roman" FontSize="18"/>
                     <Label x:Name="lblDataEmit2" Content="Data emiterii" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,62"/>
-                    <DatePicker Canvas.Left="123" Canvas.Top="64" Width="177" Height="31" FontFamily="Times New Roman" FontSize="18"/>
+                    <TextBox x:Name="dtDataEmit2" Canvas.Left="123" Canvas.Top="62" Width="177" Height="31" FontFamily="Times New Roman" FontSize="18" TextChanged="dtDataEmit2_TextChanged"/>
                     <Label x:Name="lblLinie2" Content="___________________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,100"/>
                     <Label x:Name="lblSemnaturaPlat2" Content="Semnătura plătitorului și Ștampila" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,120"/>
                     <Label x:Name="lblDataDebit2" Content="Data debitării" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Margin="7,157"/>

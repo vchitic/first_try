@@ -574,6 +574,11 @@ namespace first_try
             txtReprez2.Text = txtReprez.Text;
         }
 
+        private void dtDataEmit2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dtDataEmit2.Text = dtDataEmit.Text;
+        }
+
         private void ComplBenefClick(object sender, RoutedEventArgs e)
         {
             ComplBenef completare = new ComplBenef();
@@ -1115,5 +1120,6 @@ namespace first_try
             navigationView.MoveCurrentToNext();
         }
 
+       
     }
 }

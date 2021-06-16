@@ -1107,9 +1107,9 @@ namespace first_try {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime dataEmit {
+            public string dataEmit {
                 get {
-                    return ((global::System.DateTime)(this[this.tableDateFormIncarcare.dataEmitColumn]));
+                    return ((string)(this[this.tableDateFormIncarcare.dataEmitColumn]));
                 }
                 set {
                     this[this.tableDateFormIncarcare.dataEmitColumn] = value;
