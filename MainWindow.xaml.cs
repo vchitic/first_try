@@ -85,8 +85,8 @@ namespace first_try
 
         private void Qst_Click(object sender, RoutedEventArgs e)
         {
-            string message = "Numărul de ordine se găsește în partea stângă jos a OP/FV-ului listat, între paranteze.\r\n" 
-                +"Puteți reveni oricând pentru modificări de conținut dacă introduceți nr. de ordine sau dacă îl selectați din listă.\r\n"
+            string message = "Numărul de ordine se găsește în partea stângă sus a OP/FV-ului.\r\n" 
+                +"Puteți reveni oricând pentru modificări de conținut dacă îl selectați din listă.\r\n"
                 +"Pentru un OP/FV nou încărcat, nr. de ordine este egal cu numărul de OP/FV-uri încărcate plus unu.";
             string title = "Informații";
             MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
@@ -108,6 +108,8 @@ namespace first_try
             {
                 print.PrintVisual(Fereastra_Incarcare., "OP");
             }*/
+
+            //să printeze formularul gol, n-am idee cum ajung la fereastra aia (Fereastra_Incarcare) 
             
         }
 
@@ -122,12 +124,10 @@ namespace first_try
             if ((bool)OPRadiobtn.IsChecked)
             {
                 incarcare_completare_OP.Show();
-                //incarcare_OP.Show();
 
             } else
             {
                 incarcare_completare_FV.Show();
-                //incarcare_FV.Show();
             }
 
         }
@@ -155,13 +155,15 @@ namespace first_try
         private void NrOrdCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //daca primeste valoare, se deschide formularul respectiv
-            //SELECT * FROM DateFormIncarcare WHERE (nr==nrOrdCmb.Value)
+            //SELECT * FROM DateFormIncarcare WHERE (nr==nrOrdCmb.Value) ????
         }
 
         private void NrOrdCmb_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //fac două combobox-uri, unul pentru OP, unul pentru FV, fiecare deschide formularul respectiv
-            //mai fac un tabel în baza de date pentru FV-uri
+            //combobox-u existent e legat de DateFormIncarcareFV, adică merge pe partea de FV, poate reușești să-l
+            // faci să-mi deschidă formularu respectiv ori la dubluclick pe valoare ori după selectarea valorii 
+            // la apăsasarea butonului încărcare
         }
     }
 }
