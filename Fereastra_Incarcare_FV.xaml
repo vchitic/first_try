@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:first_try"
         mc:Ignorable="d"
-        Title="Formular FV" Height="1430" Width="1160" Background="#ffffff" Loaded="frmIncarcareFV_Loaded" ResizeMode="NoResize" WindowStartupLocation="Manual" ScrollViewer.VerticalScrollBarVisibility="Visible" SizeToContent="WidthAndHeight" ScrollViewer.CanContentScroll="True">
+        Title="Formular FV" Height="1430" Width="1160" Background="#ffffff" Loaded="frmIncarcareFV_Loaded" ResizeMode="CanMinimize" WindowStartupLocation="Manual" ScrollViewer.VerticalScrollBarVisibility="Visible" SizeToContent="WidthAndHeight" ScrollViewer.CanContentScroll="True">
     <Window.Resources>
         <DataTemplate x:Key="DateTemplate">
             <Grid>

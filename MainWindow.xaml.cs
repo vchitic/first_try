@@ -16,6 +16,7 @@ using System.IO;
 using System.Diagnostics;
 using Microsoft.Win32;
 using System.Activities.Expressions;
+using System.Data.SqlClient;
 
 namespace first_try
 {
@@ -39,17 +40,31 @@ namespace first_try
             if (result == MessageBoxResult.Yes)
             {
                 //Sterge toate OP/FV-urile
-                string[] filePaths = Directory.GetFiles(@""); //folderul unde sunt stocate
+                /*string[] filePaths = Directory.GetFiles(@""); //folderul unde sunt stocate
                 foreach (string filePath in filePaths)
                     File.Delete(filePath);
+                */
+
+                SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
+                SqlCommand comm = new SqlCommand(@"DELETE FROM DateFormIncarcare", conn);
+                conn.Open();
+                comm.ExecuteNonQuery();
+                if(comm.ExecuteNonQuery() != -1)
+                {
+                    const string mess = "Datele au fost șterse cu succes";
+                    const string capt = "OP/FV-uri șterse";
+                    MessageBoxButton boxButton = MessageBoxButton.OK;
+                    MessageBox.Show(mess, capt, boxButton);
+                }
+                conn.Close();
+            
             }
         }
 
+
         private void LegislatieClick(object sender, RoutedEventArgs e)
         {
-            //deschide in notepad legistalia
-            //Process.Start("notepad.exe", "D:\\My stuff\\Licență\\legi.txt");
-
+            
             Fereastra_Legislatie legislatie = new Fereastra_Legislatie();
             legislatie.Show();
 
@@ -82,19 +97,18 @@ namespace first_try
 
         }
 
-        private void Borderou1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Borderou2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void Formulare_Click(object sender, RoutedEventArgs e)
         {
+           
+            //printare formular gol
 
+            /* PrintDialog print = new PrintDialog();
+            if(print.ShowDialog()==true)
+            {
+                print.PrintVisual(Fereastra_Incarcare., "OP");
+            }*/
+            
         }
 
         

@@ -126,9 +126,11 @@ namespace first_try
             //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
             //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
             //bazaDeDateViewSource.View.MoveCurrentToFirst();
+            
             ICollectionView navigationView =
              CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
             navigationView.MoveCurrentToFirst();
+            
             this.Top = 0;
         }
 
@@ -138,10 +140,7 @@ namespace first_try
         }
 
         private void LegislatieClick(object sender, RoutedEventArgs e)
-        {
-            //deschide in notepad legistalia
-            //Process.Start("notepad.exe", "D:\\My stuff\\Licență\\legi.txt");
-            
+        {      
             Fereastra_Legislatie legislatie = new Fereastra_Legislatie();
             legislatie.Show();
         }
@@ -164,21 +163,6 @@ namespace first_try
             sugestii.Show();
         }
 
-        private void FisierDateClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void FondMediuClick(object sender, RoutedEventArgs e)
-        {
-            //completare câmpuri BENEFICIAR
-        }
-
-        private void OPFVtextClick(object sender, RoutedEventArgs e)
-        {
-            //LOPFV.txt
-        }
-
         private void ExportareClick(object sender, RoutedEventArgs e)
         {
             //exportare ca PDF
@@ -186,7 +170,7 @@ namespace first_try
             gbButoane.Visibility = System.Windows.Visibility.Hidden;
             try
             {
-                this.IsEnabled = false;
+                //this.IsEnabled = false;
 
                 PrintDialog printDialog = new PrintDialog();
                 if(printDialog.ShowDialog() == true)
@@ -196,60 +180,10 @@ namespace first_try
             }
             finally
             {
-                this.IsEnabled = true;
+                //this.IsEnabled = true;
             }
            
         }
-
-
-
-        public static string NumberToWords(int number)
-        {
-            if (number == 0)
-                return "zero";
-
-            string words = "";
-
-            if ((number / 1000000) > 0)
-            {
-                words += NumberToWords(number / 1000000) + " milioane ";
-                number %= 1000000;
-            }
-
-            if ((number / 1000) > 0)
-            {
-                words += NumberToWords(number / 1000) + " mii ";
-                number %= 1000;
-            }
-
-            if ((number / 100) > 0)
-            {
-                words += NumberToWords(number / 100) + " sute ";
-                number %= 100;
-            }
-
-            if (number > 0)
-            {
-                //if (words != "")
-                  //  words += "";
-
-                var unitsMap = new[] { "zero", "unu", "doi", "trei", "patru", "cinci", "șase", "șapte", "opt", "nouă", "zece", "unsprezece", "douăsprezece", "treisprezece", "paisprezece", "cincisprezece", "șaisprezece", "șaptesprezece", "optsprezece", "nouăsprezece" };
-                var tensMap = new[] { "zero", "zece", "douăzeci", "treizeci", "patruzeci", "cincizeci", "șaizeci", "șaptezeci", "optzeci", "nouăzeci" };
-
-                if (number < 20)
-                    words += unitsMap[number];
-                else
-                {
-                    words += tensMap[number / 10];
-                    if ((number % 10) > 0)
-                        words += " și " + unitsMap[number % 10];
-                }
-            }
-
-            return words;
-        }
-
-        //ROMÂNĂ
 
         public static int NumarDeCifre(int numar)
         {
@@ -415,7 +349,7 @@ namespace first_try
                             }
                             else
                             {
-                                construit += CifraLaLiteral(numar_de_la_pozitie, numar_de_cifre, EsteFeminin) + " ";
+                                construit += CifraLaLiteral(numar_de_la_pozitie, numar_de_cifre, EsteFeminin);
                                 if (bool_EstePlural)
                                     construit += "zeci";
                             }
@@ -496,8 +430,6 @@ namespace first_try
 
         private void TextChangedNumbers(object sender, TextChangedEventArgs e)
         {
-            // exception la backspace !!
-
             if (txtPlatiti.Text != "")
             {
                 txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
@@ -1208,7 +1140,6 @@ namespace first_try
             {
                 navigationView.MoveCurrentToFirst();
             }
-
         }
 
         private void txtNumarInCuvinte_TextChanged(object sender, TextChangedEventArgs e)
@@ -1217,8 +1148,6 @@ namespace first_try
             {
                 txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
             }
-
-            
         }
     }
 }
