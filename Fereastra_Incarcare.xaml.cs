@@ -173,8 +173,8 @@ namespace first_try
                 //this.IsEnabled = false;
 
                 PrintDialog printDialog = new PrintDialog();
-                if(printDialog.ShowDialog() == true)
-                {
+                if (printDialog.ShowDialog() == true)
+                { 
                     printDialog.PrintVisual(grdIncarcare, "OP");
                 }
             }
@@ -430,10 +430,10 @@ namespace first_try
 
         private void TextChangedNumbers(object sender, TextChangedEventArgs e)
         {
-            if (txtPlatiti.Text != "")
-            {
+             if (txtPlatiti.Text != "")
+             {
                 txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
-            }
+             }
         }
 
         private void Nr2TextChanged(object sender, TextChangedEventArgs e)
@@ -1140,6 +1140,7 @@ namespace first_try
             {
                 navigationView.MoveCurrentToFirst();
             }
+
         }
 
         private void txtNumarInCuvinte_TextChanged(object sender, TextChangedEventArgs e)

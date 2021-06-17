@@ -46,7 +46,7 @@ namespace first_try
                 */
 
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
-                SqlCommand comm = new SqlCommand(@"DELETE FROM DateFormIncarcare", conn);
+                SqlCommand comm = new SqlCommand(@"DELETE FROM DateFormIncarcare, DateFormIncarcareFV", conn);
                 conn.Open();
                 comm.ExecuteNonQuery();
                 if(comm.ExecuteNonQuery() != -1)
@@ -135,6 +135,33 @@ namespace first_try
         private void Window_Closed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void NrOrdCmb_Loaded(object sender, RoutedEventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand(@"SELECT nr FROM DateFormIncarcareFV", connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while(reader.Read())
+            {
+                NrOrdCmb.Items.Add(reader[0]).ToString();
+            }
+
+            connection.Close();
+        }
+
+        private void NrOrdCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //daca primeste valoare, se deschide formularul respectiv
+            //SELECT * FROM DateFormIncarcare WHERE (nr==nrOrdCmb.Value)
+        }
+
+        private void NrOrdCmb_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            //fac două combobox-uri, unul pentru OP, unul pentru FV, fiecare deschide formularul respectiv
+            //mai fac un tabel în baza de date pentru FV-uri
         }
     }
 }

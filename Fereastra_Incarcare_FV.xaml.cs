@@ -33,8 +33,8 @@ namespace first_try
 
         ActionState action = ActionState.Nothing;
         BazaDeDateDataSet bazaDeDateDataSet = new BazaDeDateDataSet();
-        BazaDeDateDataSetTableAdapters.DateFormIncarcareTableAdapter
-        tblDateFormAdapter = new BazaDeDateDataSetTableAdapters.DateFormIncarcareTableAdapter();
+        BazaDeDateDataSetTableAdapters.DateFormIncarcareFVTableAdapter
+        tblDateFormAdapter = new BazaDeDateDataSetTableAdapters.DateFormIncarcareFVTableAdapter();
         //header
         Binding txtNrBinding = new Binding();
         Binding txtPlatitiBinding = new Binding();
@@ -43,9 +43,6 @@ namespace first_try
         Binding txtPlatBinding = new Binding();
         Binding txtCodPlatBinding = new Binding();
         Binding txtAdresaPlatBinding = new Binding();
-        Binding txtIbanPlatBinding = new Binding();
-        Binding txtBicPlatBinding = new Binding();
-        Binding txtDeLaBinding = new Binding();
         Binding txtAngajamentBinding = new Binding();
         Binding txtIndicatorBinding = new Binding();
         Binding txtCodProgrBinding = new Binding();
@@ -53,7 +50,6 @@ namespace first_try
         Binding txtBenefBinding = new Binding();
         Binding txtCodBenefBinding = new Binding();
         Binding txtIbanBenefBinding = new Binding();
-        Binding txtBicBenefBinding = new Binding();
         Binding txtLaBinding = new Binding();
         Binding txtNrEvidBinding = new Binding();
         Binding txtReprezBinding = new Binding();
@@ -63,7 +59,7 @@ namespace first_try
         public Fereastra_Incarcare_FV()
         {
             InitializeComponent();
-            grdIncarcareFV.DataContext = bazaDeDateDataSet.DateFormIncarcare;
+            grdIncarcareFV.DataContext = bazaDeDateDataSet.DateFormIncarcareFV;
 
             txtNrBinding.Path = new PropertyPath("nr");
             txtPlatitiBinding.Path = new PropertyPath("platiti");
@@ -72,9 +68,6 @@ namespace first_try
             txtPlatBinding.Path = new PropertyPath("plat");
             txtCodPlatBinding.Path = new PropertyPath("codPlat");
             txtAdresaPlatBinding.Path = new PropertyPath("adresaPlat");
-            txtIbanPlatBinding.Path = new PropertyPath("ibanPlat");
-            txtBicPlatBinding.Path = new PropertyPath("bicPlat");
-            txtDeLaBinding.Path = new PropertyPath("deLa");
             txtAngajamentBinding.Path = new PropertyPath("angajament");
             txtIndicatorBinding.Path = new PropertyPath("indicator");
             txtCodProgrBinding.Path = new PropertyPath("codProgr");
@@ -82,7 +75,6 @@ namespace first_try
             txtBenefBinding.Path = new PropertyPath("benef");
             txtCodBenefBinding.Path = new PropertyPath("codBenef");
             txtIbanBenefBinding.Path = new PropertyPath("ibanBenef");
-            txtBicBenefBinding.Path = new PropertyPath("bicBenef");
             txtLaBinding.Path = new PropertyPath("la");
             txtNrEvidBinding.Path = new PropertyPath("nrEvid");
             txtReprezBinding.Path = new PropertyPath("reprez");
@@ -103,7 +95,6 @@ namespace first_try
             txtBenef.SetBinding(TextBox.TextProperty, txtBenefBinding);
             txtCodBenef.SetBinding(TextBox.TextProperty, txtCodBenefBinding);
             txtIbanBenef.SetBinding(TextBox.TextProperty, txtIbanBenefBinding);
-            txtBicBenef.SetBinding(TextBox.TextProperty, txtBicBenefBinding);
             txtLa.SetBinding(TextBox.TextProperty, txtLaBinding);
             txtNrEvid.SetBinding(TextBox.TextProperty, txtNrEvidBinding);
             txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
@@ -114,7 +105,7 @@ namespace first_try
 
         private void lstDateLoad()
         {
-            tblDateFormAdapter.Fill(bazaDeDateDataSet.DateFormIncarcare);
+            tblDateFormAdapter.Fill(bazaDeDateDataSet.DateFormIncarcareFV);
         }
 
         private void frmIncarcareFV_Loaded(object sender, RoutedEventArgs e)
@@ -125,7 +116,7 @@ namespace first_try
             //bazaDeDateViewSource.View.MoveCurrentToFirst();
             
             ICollectionView navigationView =
-            CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
+            CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcareFV);
             navigationView.MoveCurrentToFirst();
 
             this.Top = 0;
@@ -494,11 +485,6 @@ namespace first_try
             txtIbanBenef2.Text = txtIbanBenef.Text;
         }
 
-        private void BicBenef2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtBicBenef2.Text = txtBicBenef.Text;
-        }
-
         private void La2TextChanged(object sender, TextChangedEventArgs e)
         {
             txtLa2.Text = txtLa.Text;
@@ -552,7 +538,6 @@ namespace first_try
             txtBenef.IsEnabled = true;
             txtCodBenef.IsEnabled = true;
             txtIbanBenef.IsEnabled = true;
-            txtBicBenef.IsEnabled = true;
             txtLa.IsEnabled = true;
             txtNrEvid.IsEnabled = true;
             txtReprez.IsEnabled = true;
@@ -573,7 +558,6 @@ namespace first_try
             BindingOperations.ClearBinding(txtBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtCodBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtIbanBenef, TextBox.TextProperty);
-            BindingOperations.ClearBinding(txtBicBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtLa, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtNrEvid, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtReprez, TextBox.TextProperty);
@@ -593,7 +577,6 @@ namespace first_try
             txtBenef.Text = "";
             txtCodBenef.Text = "";
             txtIbanBenef.Text = "";
-            txtBicBenef.Text = "";
             txtLa.Text = "";
             txtNrEvid.Text = "";
             txtReprez.Text = "";
@@ -619,7 +602,6 @@ namespace first_try
             string tempBenef = txtBenef.Text.ToString();
             string tempCodBenef = txtCodBenef.Text.ToString();
             string tempIbanBenef = txtIbanBenef.Text.ToString();
-            string tempBicBenef = txtBicBenef.Text.ToString();
             string tempLa = txtLa.Text.ToString();
             string tempNrEvid = txtNrEvid.Text.ToString();
             string tempReprez = txtReprez.Text.ToString();
@@ -649,7 +631,6 @@ namespace first_try
             txtBenef.IsEnabled = true;
             txtCodBenef.IsEnabled = true;
             txtIbanBenef.IsEnabled = true;
-            txtBicBenef.IsEnabled = true;
             txtLa.IsEnabled = true;
             txtNrEvid.IsEnabled = true;
             txtReprez.IsEnabled = true;
@@ -670,7 +651,6 @@ namespace first_try
             BindingOperations.ClearBinding(txtBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtCodBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtIbanBenef, TextBox.TextProperty);
-            BindingOperations.ClearBinding(txtBicBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtLa, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtNrEvid, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtReprez, TextBox.TextProperty);
@@ -690,7 +670,6 @@ namespace first_try
             txtBenef.Text = tempBenef;
             txtCodBenef.Text = tempCodBenef;
             txtIbanBenef.Text = tempIbanBenef;
-            txtBicBenef.Text = tempBicBenef;
             txtLa.Text = tempLa;
             txtNrEvid.Text = tempNrEvid;
             txtReprez.Text = tempReprez;
@@ -716,7 +695,6 @@ namespace first_try
             string tempBenef = txtBenef.Text.ToString();
             string tempCodBenef = txtCodBenef.Text.ToString();
             string tempIbanBenef = txtIbanBenef.Text.ToString();
-            string tempBicBenef = txtBicBenef.Text.ToString();
             string tempLa = txtLa.Text.ToString();
             string tempNrEvid = txtNrEvid.Text.ToString();
             string tempReprez = txtReprez.Text.ToString();
@@ -746,7 +724,6 @@ namespace first_try
             BindingOperations.ClearBinding(txtBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtCodBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtIbanBenef, TextBox.TextProperty);
-            BindingOperations.ClearBinding(txtBicBenef, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtLa, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtNrEvid, TextBox.TextProperty);
             BindingOperations.ClearBinding(txtReprez, TextBox.TextProperty);
@@ -766,7 +743,6 @@ namespace first_try
             txtBenef.Text = tempBenef;
             txtCodBenef.Text = tempCodBenef;
             txtIbanBenef.Text = tempIbanBenef;
-            txtBicBenef.Text = tempBicBenef;
             txtLa.Text = tempLa;
             txtNrEvid.Text = tempNrEvid;
             txtReprez.Text = tempReprez;
@@ -801,7 +777,6 @@ namespace first_try
             txtBenef.IsEnabled = false;
             txtCodBenef.IsEnabled = false;
             txtIbanBenef.IsEnabled = false;
-            txtBicBenef.IsEnabled = false;
             txtLa.IsEnabled = false;
             txtNrEvid.IsEnabled = false;
             txtReprez.IsEnabled = false;
@@ -821,7 +796,6 @@ namespace first_try
             txtBenef.SetBinding(TextBox.TextProperty, txtBenefBinding);
             txtCodBenef.SetBinding(TextBox.TextProperty, txtCodBenefBinding);
             txtIbanBenef.SetBinding(TextBox.TextProperty, txtIbanBenefBinding);
-            txtBicBenef.SetBinding(TextBox.TextProperty, txtBicBenefBinding);
             txtLa.SetBinding(TextBox.TextProperty, txtLaBinding);
             txtNrEvid.SetBinding(TextBox.TextProperty, txtNrEvidBinding);
             txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
@@ -835,7 +809,7 @@ namespace first_try
             {
                 try
                 {
-                    DataRow newRow = bazaDeDateDataSet.DateFormIncarcare.NewRow();
+                    DataRow newRow = bazaDeDateDataSet.DateFormIncarcareFV.NewRow();
                     newRow.BeginEdit();
                     newRow["nr"] = txtNr.Text.Trim();
                     newRow["platiti"] = txtPlatiti.Text.Trim();
@@ -850,15 +824,14 @@ namespace first_try
                     newRow["benef"] = txtBenef.Text.Trim();
                     newRow["codBenef"] = txtCodBenef.Text.Trim();
                     newRow["ibanBenef"] = txtIbanBenef.Text.Trim();
-                    newRow["bicBenef"] = txtBicBenef.Text.Trim();
                     newRow["la"] = txtLa.Text.Trim();
                     newRow["nrEvid"] = txtNrEvid.Text.Trim();
                     newRow["reprez"] = txtReprez.Text.Trim();
                     newRow["dataEmit"] = dtDataEmit.Text.Trim();
 
                     newRow.EndEdit();
-                    bazaDeDateDataSet.DateFormIncarcare.Rows.Add(newRow);
-                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcare);
+                    bazaDeDateDataSet.DateFormIncarcareFV.Rows.Add(newRow);
+                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcareFV);
                     bazaDeDateDataSet.AcceptChanges();
                 }
                 catch (DataException ex)
@@ -889,7 +862,6 @@ namespace first_try
                 txtBenef.IsEnabled = false;
                 txtCodBenef.IsEnabled = false;
                 txtIbanBenef.IsEnabled = false;
-                txtBicBenef.IsEnabled = false;
                 txtLa.IsEnabled = false;
                 txtNrEvid.IsEnabled = false;
                 txtReprez.IsEnabled = false;
@@ -901,7 +873,7 @@ namespace first_try
             {
                 try
                 {
-                    DataRow editRow = bazaDeDateDataSet.DateFormIncarcare.Rows[lstDate.SelectedIndex];
+                    DataRow editRow = bazaDeDateDataSet.DateFormIncarcareFV.Rows[lstDate.SelectedIndex];
                     editRow.BeginEdit();
                     editRow["nr"] = txtNr.Text.Trim();
                     editRow["platiti"] = txtPlatiti.Text.Trim();
@@ -916,14 +888,13 @@ namespace first_try
                     editRow["benef"] = txtBenef.Text.Trim();
                     editRow["codBenef"] = txtCodBenef.Text.Trim();
                     editRow["ibanBenef"] = txtIbanBenef.Text.Trim();
-                    editRow["bicBenef"] = txtBicBenef.Text.Trim();
                     editRow["la"] = txtLa.Text.Trim();
                     editRow["nrEvid"] = txtNrEvid.Text.Trim();
                     editRow["reprez"] = txtReprez.Text.Trim();
                     editRow["dataEmit"] = dtDataEmit.Text.Trim();
 
                     editRow.EndEdit();
-                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcare);
+                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcareFV);
                     bazaDeDateDataSet.AcceptChanges();
                 }
                 catch (DataException ex)
@@ -954,7 +925,6 @@ namespace first_try
                 txtBenef.IsEnabled = false;
                 txtCodBenef.IsEnabled = false;
                 txtIbanBenef.IsEnabled = false;
-                txtBicBenef.IsEnabled = false;
                 txtLa.IsEnabled = false;
                 txtNrEvid.IsEnabled = false;
                 txtReprez.IsEnabled = false;
@@ -974,7 +944,6 @@ namespace first_try
                 txtBenef.SetBinding(TextBox.TextProperty, txtBenefBinding);
                 txtCodBenef.SetBinding(TextBox.TextProperty, txtCodBenefBinding);
                 txtIbanBenef.SetBinding(TextBox.TextProperty, txtIbanBenefBinding);
-                txtBicBenef.SetBinding(TextBox.TextProperty, txtBicBenefBinding);
                 txtLa.SetBinding(TextBox.TextProperty, txtLaBinding);
                 txtNrEvid.SetBinding(TextBox.TextProperty, txtNrEvidBinding);
                 txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
@@ -985,9 +954,9 @@ namespace first_try
             {
                 try
                 {
-                    DataRow deleterow = bazaDeDateDataSet.DateFormIncarcare.Rows[lstDate.SelectedIndex];
+                    DataRow deleterow = bazaDeDateDataSet.DateFormIncarcareFV.Rows[lstDate.SelectedIndex];
                     deleterow.Delete();
-                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcare);
+                    tblDateFormAdapter.Update(bazaDeDateDataSet.DateFormIncarcareFV);
                     bazaDeDateDataSet.AcceptChanges();
                 }
                 catch (DataException ex)
@@ -1018,7 +987,6 @@ namespace first_try
                 txtBenef.IsEnabled = false;
                 txtCodBenef.IsEnabled = false;
                 txtIbanBenef.IsEnabled = false;
-                txtBicBenef.IsEnabled = false;
                 txtLa.IsEnabled = false;
                 txtNrEvid.IsEnabled = false;
                 txtReprez.IsEnabled = false;
@@ -1038,7 +1006,6 @@ namespace first_try
                 txtBenef.SetBinding(TextBox.TextProperty, txtBenefBinding);
                 txtCodBenef.SetBinding(TextBox.TextProperty, txtCodBenefBinding);
                 txtIbanBenef.SetBinding(TextBox.TextProperty, txtIbanBenefBinding);
-                txtBicBenef.SetBinding(TextBox.TextProperty, txtBicBenefBinding);
                 txtLa.SetBinding(TextBox.TextProperty, txtLaBinding);
                 txtNrEvid.SetBinding(TextBox.TextProperty, txtNrEvidBinding);
                 txtReprez.SetBinding(TextBox.TextProperty, txtReprezBinding);
@@ -1049,7 +1016,7 @@ namespace first_try
         private void btnPrevious_Click(object sender, RoutedEventArgs e)
         {
             ICollectionView navigationView =
-            CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
+            CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcareFV);
 
             if (!navigationView.MoveCurrentToPrevious())
             {
@@ -1060,7 +1027,7 @@ namespace first_try
         private void btnNext_Click(object sender, RoutedEventArgs e)
         {
             ICollectionView navigationView =
-             CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcare);
+             CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcareFV);
 
             if (!navigationView.MoveCurrentToNext())
             {
