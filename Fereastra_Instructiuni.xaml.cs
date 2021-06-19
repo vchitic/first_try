@@ -25,6 +25,5 @@ namespace first_try
             InitializeComponent();
         }
 
-      
     }
 }

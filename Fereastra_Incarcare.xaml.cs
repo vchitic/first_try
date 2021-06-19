@@ -249,9 +249,6 @@ namespace first_try
                     else
                         return "";
             }
-
-
-
         }
 
         public static bool EstePlural(int cifra)
@@ -380,8 +377,7 @@ namespace first_try
                                 if (bool_EstePlural)
                                 {
                                     if (!EraGol)
-                                        construit += " de";
-                                    construit += " milioane ";  // plural = feminin
+                                        construit += " de milioane "; // plural = feminin
                                 }
                                 else
                                 {
@@ -393,8 +389,7 @@ namespace first_try
                                 if (bool_EstePlural)
                                 {
                                     if (!EraGol)
-                                        construit += " de";
-                                    construit += " mii ";  // plural = feminin
+                                        construit += " de mii "; // plural = feminin
                                 }
                                 else
                                 {

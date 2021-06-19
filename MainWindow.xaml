@@ -15,11 +15,11 @@
             <Button x:Name="ListareButton" Content="Listare OP/FV" HorizontalAlignment="Left" Margin="22,43,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="36"/>
 
         </GroupBox>
-        <Label x:Name="NrOrdLabel" Content="Nr. de ordine:" HorizontalAlignment="Left" Margin="201,301,0,0" VerticalAlignment="Top" FontSize="16" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1"/>
-        <TextBox x:Name="NrOrdTxt" HorizontalAlignment="Left" Height="27" Margin="201,332,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="109" FontSize="16" Background="#FFFDECB3" BorderBrush="#FF040000" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip="Număr de ordine OP/FV încărcat"/>
-        <Button x:Name="QstButton" Content="?" HorizontalAlignment="Left" Margin="328,317,0,0" VerticalAlignment="Top" Width="27" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="18" FontWeight="Bold" Click="Qst_Click" RenderTransformOrigin="0.395,-0.024" ToolTip="Informații"/>
-        <Label x:Name="NrOrd2Label" Content="Nr. de ordine, nr. OP/FV" HorizontalAlignment="Left" Margin="384,301,0,0" VerticalAlignment="Top" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="16"/>
-        <ComboBox x:Name="NrOrdCmb" HorizontalAlignment="Left" Margin="384,332,0,0" VerticalAlignment="Top" Width="181" BorderBrush="Black" FontSize="16" BorderThickness="2,1,2,2" IsReadOnly="True" Loaded="NrOrdCmb_Loaded" SelectionChanged="NrOrdCmb_SelectionChanged" MouseDoubleClick="NrOrdCmb_MouseDoubleClick"/>
+        <Label x:Name="NrOrdLabel" Content="Nr. de ordine OP:" HorizontalAlignment="Left" Margin="201,301,0,0" VerticalAlignment="Top" FontSize="16" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1"/>
+        <ComboBox x:Name="NrOrdTxt" HorizontalAlignment="Left" Margin="201,332,0,0" Text="1" VerticalAlignment="Top" Width="134" FontSize="16" Background="#FFFDECB3" BorderBrush="#FF040000" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip="Număr de ordine OP/FV încărcat"/>
+        <Button x:Name="QstButton" Content="?" HorizontalAlignment="Left" Margin="346,317,0,0" VerticalAlignment="Top" Width="27" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="18" FontWeight="Bold" Click="Qst_Click" RenderTransformOrigin="0.395,-0.024" ToolTip="Informații"/>
+        <Label x:Name="NrOrd2Label" Content="Nr. de ordine FV:" HorizontalAlignment="Left" Margin="384,301,0,0" VerticalAlignment="Top" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="16"/>
+        <ComboBox x:Name="NrOrdCmb" HorizontalAlignment="Left" Margin="384,332,0,0" VerticalAlignment="Top" Width="131" BorderBrush="Black" FontSize="16" BorderThickness="2,1,2,2" IsReadOnly="True" Loaded="NrOrdCmb_Loaded" SelectionChanged="NrOrdCmb_SelectionChanged" MouseDoubleClick="NrOrdCmb_MouseDoubleClick"/>
         <GroupBox x:Name="OPFVradbtn" HorizontalAlignment="Left" Height="33" Margin="590,301,0,0" VerticalAlignment="Top" Width="156" BorderBrush="Black"/>
         <RadioButton x:Name="OPRadiobtn" Content="OP" HorizontalAlignment="Left" Margin="612,306,0,0" VerticalAlignment="Top" FontSize="18" Height="25" Width="44" IsChecked="True"/>
         <RadioButton x:Name="FVRadiobtn" Content="FV" HorizontalAlignment="Left" Margin="691,306,0,0" VerticalAlignment="Top" FontSize="18" Height="25" RenderTransformOrigin="0.402,-0.373"/>
@@ -27,8 +27,6 @@
         <Button x:Name="ListarePachetButton" Content="Listare pachet OP/FV-uri" HorizontalAlignment="Left" Margin="557,70,0,0" VerticalAlignment="Top" Width="207" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18"  ToolTip="Listare OP/FV-uri. Poziționați-vă mai întâi pe un OP/FV din pachet" Click="ListarePachet_Click" Height="49"/>
         <Button x:Name="FormulareButton" Content="Formulare goale OP/FV" HorizontalAlignment="Left" Margin="557,130,0,0" VerticalAlignment="Top" Width="207" Height="45" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" ToolTip="Listare formulare goale" Click="Formulare_Click"/>
         <Button x:Name="InstructButton" Content="Instrucțiuni" HorizontalAlignment="Left" Margin="349,217,0,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" Height="30" BorderThickness="1" Click="Instruct_Click"/>
-        <Button x:Name="StructuriButton" Content="Structuri" HorizontalAlignment="Left" Height="30" Margin="499,217,0,0" VerticalAlignment="Top" Width="120" FontSize="18" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="Structuri_Click"/>
-
     </Grid>
 
 </Window>

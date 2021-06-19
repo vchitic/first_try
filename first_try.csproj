@@ -179,10 +179,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Fereastra_Structuri.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Fereastra_Sugestii.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -225,9 +221,6 @@
     </Compile>
     <Compile Include="Fereastra_Legislatie.xaml.cs">
       <DependentUpon>Fereastra_Legislatie.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Fereastra_Structuri.xaml.cs">
-      <DependentUpon>Fereastra_Structuri.xaml</DependentUpon>
     </Compile>
     <Compile Include="Fereastra_Sugestii.xaml.cs">
       <DependentUpon>Fereastra_Sugestii.xaml</DependentUpon>

@@ -39,28 +39,23 @@ namespace first_try
                                  MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
-                //Sterge toate OP/FV-urile
-                /*string[] filePaths = Directory.GetFiles(@""); //folderul unde sunt stocate
-                foreach (string filePath in filePaths)
-                    File.Delete(filePath);
-                */
-
                 SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
-                SqlCommand comm = new SqlCommand(@"DELETE FROM DateFormIncarcare, DateFormIncarcareFV", conn);
+                SqlCommand comm = new SqlCommand(@"DELETE FROM DateFormIncarcare", conn);
+                SqlCommand comm2 = new SqlCommand(@"DELETE FROM DateFormIncarcareFV", conn);
                 conn.Open();
                 comm.ExecuteNonQuery();
-                if(comm.ExecuteNonQuery() != -1)
+                comm2.ExecuteNonQuery();
+                if(comm.ExecuteNonQuery()!=-1 && comm2.ExecuteNonQuery()!=-1)
                 {
                     const string mess = "Datele au fost șterse cu succes";
                     const string capt = "OP/FV-uri șterse";
                     MessageBoxButton boxButton = MessageBoxButton.OK;
-                    MessageBox.Show(mess, capt, boxButton);
+                    MessageBoxImage boxImage = MessageBoxImage.Information;
+                    MessageBox.Show(mess, capt, boxButton, boxImage);
                 }
                 conn.Close();
-            
             }
         }
-
 
         private void LegislatieClick(object sender, RoutedEventArgs e)
         {
@@ -75,12 +70,6 @@ namespace first_try
             Fereastra_Instructiuni instructiuni = new Fereastra_Instructiuni();
             instructiuni.Show();
 
-        }
-
-        private void Structuri_Click(object sender, RoutedEventArgs e)
-        {
-            Fereastra_Structuri structuri = new Fereastra_Structuri();
-            structuri.Show();
         }
 
         private void Qst_Click(object sender, RoutedEventArgs e)
