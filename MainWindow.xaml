@@ -16,7 +16,7 @@
 
         </GroupBox>
         <Label x:Name="NrOrdLabel" Content="Nr. de ordine OP:" HorizontalAlignment="Left" Margin="201,301,0,0" VerticalAlignment="Top" FontSize="16" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1"/>
-        <ComboBox x:Name="NrOrdTxt" HorizontalAlignment="Left" Margin="201,332,0,0" Text="1" VerticalAlignment="Top" Width="134" FontSize="16" Background="#FFFDECB3" BorderBrush="#FF040000" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip="Număr de ordine OP/FV încărcat"/>
+        <ComboBox x:Name="NrOrdCmbOP" HorizontalAlignment="Left" Margin="201,332,0,0" Text="1" VerticalAlignment="Top" Width="134" FontSize="16" Background="#FFFDECB3" BorderBrush="#FF040000" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ToolTip="Număr de ordine OP/FV încărcat" Loaded="NrOrdCmbOP_Loaded"/>
         <Button x:Name="QstButton" Content="?" HorizontalAlignment="Left" Margin="346,317,0,0" VerticalAlignment="Top" Width="27" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="18" FontWeight="Bold" Click="Qst_Click" RenderTransformOrigin="0.395,-0.024" ToolTip="Informații"/>
         <Label x:Name="NrOrd2Label" Content="Nr. de ordine FV:" HorizontalAlignment="Left" Margin="384,301,0,0" VerticalAlignment="Top" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="16"/>
         <ComboBox x:Name="NrOrdCmb" HorizontalAlignment="Left" Margin="384,332,0,0" VerticalAlignment="Top" Width="131" BorderBrush="Black" FontSize="16" BorderThickness="2,1,2,2" IsReadOnly="True" Loaded="NrOrdCmb_Loaded" SelectionChanged="NrOrdCmb_SelectionChanged" MouseDoubleClick="NrOrdCmb_MouseDoubleClick"/>

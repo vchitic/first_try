@@ -152,5 +152,20 @@ namespace first_try
             // faci să-mi deschidă formularu respectiv ori la dubluclick pe valoare ori după selectarea valorii 
             // la apăsasarea butonului încărcare
         }
+
+        private void NrOrdCmbOP_Loaded(object sender, RoutedEventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand(@"SELECT nr FROM DateFormIncarcare", connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                NrOrdCmbOP.Items.Add(reader[0]).ToString();
+            }
+
+            connection.Close();
+        }
     }
 }
