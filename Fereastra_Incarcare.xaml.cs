@@ -436,11 +436,8 @@ namespace first_try
                 }
                 catch (Exception) { MessageBox.Show(errMsg); }
             }
-        }
-
-        private void Nr2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtNr2.Text = txtNr.Text;
+            txtNumarInCuvinte2.Text = txtNumarInCuvinte.Text;
+            txtPlatiti2.Text = txtPlatiti.Text;
         }
 
         private void Platiti2TextChanged(object sender, TextChangedEventArgs e)
@@ -1169,6 +1166,57 @@ namespace first_try
                 }
                 catch (Exception) { MessageBox.Show("Introduceți doar numere în câmpul PLĂTIȚI"); }
             }
+            txtNumarInCuvinte2.Text = txtNumarInCuvinte.Text;
+        }
+
+        private void txtNr_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtNr2.Text = txtNr.Text;
+        }
+
+        private void txtPlat_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtPlat2.Text = txtPlat.Text;
+        }
+
+        private void txtCodPlat_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtCodPlat2.Text = txtCodPlat.Text;
+        }
+
+        private void txtAdresaPlat_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtAdresaPlat2.Text = txtAdresaPlat.Text;
+        }
+
+        private void txtIbanPlat_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtIbanPlat2.Text = txtIbanPlat.Text;
+        }
+
+        private void txtBicPlat_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtBicPlat2.Text = txtBicPlat.Text;
+        }
+
+        private void txtDeLa_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtDeLa2.Text = txtDeLa.Text;
+        }
+
+        private void txtAngajament_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtAngajament2.Text = txtAngajament.Text;
+        }
+
+        private void txtIndicator_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtIndicator2.Text = txtIndicator.Text;
+        }
+
+        private void txtCodProgr_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtCodProgr2.Text = txtCodProgr.Text;
         }
     }
 }
