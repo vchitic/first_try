@@ -116,7 +116,7 @@ namespace first_try
             //bazaDeDateViewSource.View.MoveCurrentToFirst();
             
             ICollectionView navigationView =
-            CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcareFV);
+             CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcareFV);
             navigationView.MoveCurrentToFirst();
 
             this.Top = 0;
@@ -421,7 +421,12 @@ namespace first_try
         {
             if (txtPlatiti.Text != "")
             {
-                txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+                string errMsg = "Introduceți doar numere în câmpul PLĂTIȚI";
+                try
+                {
+                    txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+                }
+                catch (Exception) { MessageBox.Show(errMsg); }
             }
         }
 
@@ -506,11 +511,11 @@ namespace first_try
             dtDataEmit2.Text = dtDataEmit.Text;
         }
 
-        private void ComplBenefClick(object sender, RoutedEventArgs e)
+        /*private void ComplBenefClick(object sender, RoutedEventArgs e)
         {
             ComplBenef completare = new ComplBenef();
             completare.Show();
-        }
+        }*/
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {
@@ -840,6 +845,10 @@ namespace first_try
                     bazaDeDateDataSet.RejectChanges();
                     MessageBox.Show(ex.Message);
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Tipul de date introdus este invalid");
+                }
 
                 btnNew.IsEnabled = true;
                 btnEdit.IsEnabled = true;
@@ -903,6 +912,11 @@ namespace first_try
                     bazaDeDateDataSet.RejectChanges();
                     MessageBox.Show(ex.Message);
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Tipul de date introdus este invalid");
+                }
+
                 btnNew.IsEnabled = true;
                 btnEdit.IsEnabled = true;
                 btnDelete.IsEnabled = true;
@@ -965,6 +979,11 @@ namespace first_try
                     bazaDeDateDataSet.RejectChanges(); MessageBox.Show(ex.Message);
                     MessageBox.Show(ex.Message);
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Tipul de date introdus este invalid");
+                }
+
                 btnNew.IsEnabled = true;
                 btnEdit.IsEnabled = true;
                 btnDelete.IsEnabled = true;
@@ -1040,7 +1059,11 @@ namespace first_try
         {
             if (txtPlatiti.Text != "")
             {
-                txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+                try
+                {
+                    txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+                }
+                catch (Exception) { MessageBox.Show("Introduceți doar numere în câmpul PLĂTIȚI"); }
             }
         }
     }

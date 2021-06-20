@@ -427,10 +427,15 @@ namespace first_try
 
         private void TextChangedNumbers(object sender, TextChangedEventArgs e)
         {
-             if (txtPlatiti.Text != "")
-             {
-                txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
-             }
+            if (txtPlatiti.Text != "")
+            {
+                string errMsg = "Introduceți doar numere în câmpul PLĂTIȚI";
+                try
+                {
+                    txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+                }
+                catch (Exception) { MessageBox.Show(errMsg); }
+            }
         }
 
         private void Nr2TextChanged(object sender, TextChangedEventArgs e)
@@ -919,6 +924,10 @@ namespace first_try
                     bazaDeDateDataSet.RejectChanges();
                     MessageBox.Show(ex.Message);
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Tipul de date introdus este invalid");
+                }
 
                 btnNew.IsEnabled = true;
                 btnEdit.IsEnabled = true;
@@ -990,6 +999,11 @@ namespace first_try
                     bazaDeDateDataSet.RejectChanges();
                     MessageBox.Show(ex.Message);
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Tipul de date introdus este invalid");
+                }
+
                 btnNew.IsEnabled = true;
                 btnEdit.IsEnabled = true;
                 btnDelete.IsEnabled = true;
@@ -1057,9 +1071,14 @@ namespace first_try
                 }
                 catch (DataException ex)
                 {
-                    bazaDeDateDataSet.RejectChanges(); MessageBox.Show(ex.Message);
+                    bazaDeDateDataSet.RejectChanges();
                     MessageBox.Show(ex.Message);
                 }
+                catch (Exception)
+                {
+                    MessageBox.Show("Tipul de date introdus este invalid");
+                }
+
                 btnNew.IsEnabled = true;
                 btnEdit.IsEnabled = true;
                 btnDelete.IsEnabled = true;
@@ -1144,7 +1163,11 @@ namespace first_try
         {
             if (txtPlatiti.Text != "")
             {
-                txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+                try
+                {
+                    txtNumarInCuvinte.Text = ConversieNumarIntreg(Convert.ToInt32(txtPlatiti.Text));
+                }
+                catch (Exception) { MessageBox.Show("Introduceți doar numere în câmpul PLĂTIȚI"); }
             }
         }
     }
