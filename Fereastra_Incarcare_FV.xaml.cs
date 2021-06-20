@@ -154,7 +154,7 @@ namespace first_try
         private void ExportareClick(object sender, RoutedEventArgs e)
         {
             //exportare ca PDF
-            btnComplBenef.Visibility = System.Windows.Visibility.Hidden;
+           // btnComplBenef.Visibility = System.Windows.Visibility.Hidden;
             gbButoane.Visibility = System.Windows.Visibility.Hidden;
             try
             {
@@ -171,6 +171,7 @@ namespace first_try
                 //this.IsEnabled = true;
             }
 
+            gbButoane.Visibility = System.Windows.Visibility.Visible;
         }
 
         public static int NumarDeCifre(int numar)
