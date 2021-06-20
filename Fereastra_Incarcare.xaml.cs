@@ -436,104 +436,8 @@ namespace first_try
                 }
                 catch (Exception) { MessageBox.Show(errMsg); }
             }
-            txtNumarInCuvinte2.Text = txtNumarInCuvinte.Text;
             txtPlatiti2.Text = txtPlatiti.Text;
-        }
-
-        private void Platiti2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtPlatiti2.Text = txtPlatiti.Text;
-        }
-
-        private void NumarInCuv2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtNumarInCuvinte2.Text = txtNumarInCuvinte.Text;
-        }
-
-        private void Plat2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtPlat2.Text = txtPlat.Text;
-        }
-
-        private void CodPlat2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtCodPlat2.Text = txtCodPlat.Text;
-        }
-
-        private void AdresaPlat2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtAdresaPlat2.Text = txtAdresaPlat.Text;
-        }
-
-        private void IbanPlat2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtIbanPlat2.Text = txtIbanPlat.Text;
-        }
-
-        private void BicPlat2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtBicPlat2.Text = txtBicPlat.Text;
-        }
-
-        private void DeLa2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtDeLa2.Text = txtDeLa.Text;
-        }
-
-        private void Angajament2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtAngajament2.Text = txtAngajament.Text;
-        }
-
-        private void Indicator2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtIndicator2.Text = txtIndicator.Text;
-        }
-
-        private void CodProgr2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtCodProgr2.Text = txtCodProgr.Text;
-        }
-
-        private void Benef2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtBenef2.Text = txtBenef.Text;
-        }
-
-        private void CodBenef2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtCodBenef2.Text = txtCodBenef.Text;
-        }
-
-        private void IbanBenef2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtIbanBenef2.Text = txtIbanBenef.Text;
-        }
-
-        private void BicBenef2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtBicBenef2.Text = txtBicBenef.Text;
-        }
-
-        private void La2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtLa2.Text = txtLa.Text;
-        }
-
-        private void NrEvid2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtNrEvid2.Text = txtNrEvid.Text;
-        }
-
-        private void Reprez2TextChanged(object sender, TextChangedEventArgs e)
-        {
-            txtReprez2.Text = txtReprez.Text;
-        }
-
-        private void dtDataEmit2_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            dtDataEmit2.Text = dtDataEmit.Text;
-        }
+        }    
 
         /*private void ComplBenefClick(object sender, RoutedEventArgs e)
         {
@@ -1217,6 +1121,46 @@ namespace first_try
         private void txtCodProgr_TextChanged(object sender, TextChangedEventArgs e)
         {
             txtCodProgr2.Text = txtCodProgr.Text;
+        }
+
+        private void txtBenef_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtBenef2.Text = txtBenef.Text;
+        }
+
+        private void txtCodBenef_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtCodBenef2.Text = txtCodBenef.Text;
+        }
+
+        private void txtIbanBenef_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtIbanBenef2.Text = txtIbanBenef.Text;
+        }
+
+        private void txtBicBenef_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtBicBenef2.Text = txtBicBenef.Text;
+        }
+
+        private void txtLa_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtLa2.Text = txtLa.Text;
+        }
+
+        private void txtNrEvid_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtNrEvid2.Text = txtNrEvid.Text;
+        }
+
+        private void txtReprez_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            txtReprez2.Text = txtReprez.Text;
+        }
+
+        private void dtDataEmit_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            dtDataEmit2.Text = dtDataEmit.Text;
         }
     }
 }
