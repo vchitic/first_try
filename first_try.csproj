@@ -155,6 +155,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Setari.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Setari.settings</DependentUpon>
+    </Compile>
     <Page Include="ComplBenef.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -287,6 +292,10 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Setari.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Setari.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -24,5 +24,19 @@ namespace first_try
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtCoduri.Text = Setari.Default.Setting;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Setari.Default.Save();
+        }
+
+        private void txtCoduri_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Setari.Default.Setting = txtCoduri.Text;
+        }
     }
 }

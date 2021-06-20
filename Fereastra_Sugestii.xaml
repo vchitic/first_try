@@ -5,15 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:first_try"
         mc:Ignorable="d"
-        Title="Sugestii" Height="735.375" Width="1230.125" Background="#FFF3BEBE">
+        Title="Sugestii" Top="0" Left="70" Height="735.375" Width="1230.125" Background="#FFF3BEBE" Loaded="Window_Loaded" Closed="Window_Closed">
     <Grid Margin="0,0,0,-210">
-        <TextBox x:Name="InfUtileTxt" HorizontalAlignment="Left" BorderThickness="0" Height="687" Margin="5,5,0,0" TextWrapping="Wrap" Text="Încărcați în acest fișier coduri IBAN (plătitor/ beneficiar) mai des folosite, pe care le puteți apela ulterior utilizand comenzile Windows 'Copy' și 'Paste' (click dreapta mouse).&#xD;&#xA;&#xD;&#xA;Exemplu:&#xD;&#xA;---------------------------------------------------------------------------------------------&#xD;&#xA;Cod IBAN                                    Trezorerie plătitor/beneficiar           Plata&#xD;&#xA;---------------------------------------------------------------------------------------------&#xD;&#xA;RO17TREZ7015069XXX002416   Trezorerie operativa Sector 1          MOBIFON&#xD;&#xA;" VerticalAlignment="Top" Width="1205" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" BorderBrush="#FFF3BEBE" SelectionBrush="{x:Null}" Background="#FFF3BEBE" FontSize="18">
-            <TextBox.Template>
-                <ControlTemplate TargetType="{x:Type TextBox}">
-                    <ScrollViewer Name="PART_ContentHost"/>
-                </ControlTemplate>
-                <!-- inserare tabel în care să se salveze IBAN-urile -->
-            </TextBox.Template>
-        </TextBox>
+        <TextBox x:Name="InfUtileTxt" IsReadOnly="True" HorizontalAlignment="Left" BorderThickness="0" Height="205" Margin="5,5,0,0" TextWrapping="Wrap" Text="Încărcați în acest fișier coduri IBAN (plătitor/ beneficiar) mai des folosite, pe care le puteți apela ulterior utilizand comenzile Windows 'Copy' și 'Paste' (click dreapta mouse).&#xD;&#xA;&#xD;&#xA;Exemplu:&#xD;&#xA;---------------------------------------------------------------------------------------------&#xD;&#xA;Cod IBAN                                    Trezorerie plătitor/beneficiar           Plata&#xD;&#xA;---------------------------------------------------------------------------------------------&#xD;&#xA;RO17TREZ7015069XXX002416   Trezorerie operativa Sector 1          MOBIFON&#xD;&#xA;" VerticalAlignment="Top" Width="1205" BorderBrush="#FFF3BEBE" SelectionBrush="{x:Null}" Background="#FFF3BEBE" FontSize="18"/>
+        <TextBox x:Name="txtCoduri" FontSize="18" HorizontalAlignment="Left" BorderBrush="Black" Height="459" Margin="2,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="676" SnapsToDevicePixels="True" Opacity="0.7" TextChanged="txtCoduri_TextChanged" VerticalScrollBarVisibility="Auto"/>
     </Grid>
 </Window>
