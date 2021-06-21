@@ -90,15 +90,7 @@ namespace first_try
         private void Formulare_Click(object sender, RoutedEventArgs e)
         {
            
-            //printare formular gol
-
-            /* PrintDialog print = new PrintDialog();
-            if(print.ShowDialog()==true)
-            {
-                print.PrintVisual(Fereastra_Incarcare., "OP");
-            }*/
-
-            //să printeze formularul gol, n-am idee cum ajung la fereastra aia (Fereastra_Incarcare) 
+            
             
         }
 
@@ -192,7 +184,8 @@ namespace first_try
                 {
                     nr_op_selectat = NrOrdCmbOP.SelectedItem.ToString();
                     Fereastra_Incarcare fereastra_Incarcare = new Fereastra_Incarcare();
-                   // fereastra_Incarcare.Show().;
+                    fereastra_Incarcare.Show();
+                    fereastra_Incarcare.WindowState = WindowState.Minimized;
                     while (fereastra_Incarcare.txtNr.Text != nr_op_selectat)
                     {
                         fereastra_Incarcare.click_btn_next(sender, e);
@@ -211,7 +204,8 @@ namespace first_try
                 {
                     nr_fv_selectat = NrOrdCmb.SelectedItem.ToString();
                     Fereastra_Incarcare_FV fereastra_Incarcare_FV = new Fereastra_Incarcare_FV();
-                    //fereastra_Incarcare_FV.Show();
+                    fereastra_Incarcare_FV.Show();
+                    fereastra_Incarcare_FV.WindowState = WindowState.Minimized;
                     while (fereastra_Incarcare_FV.txtNr.Text != nr_fv_selectat)
                     {
                         fereastra_Incarcare_FV.click_btn_next(sender, e);
