@@ -80,20 +80,6 @@ namespace first_try
             string title = "Informații";
             MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Information);
         }
-
-        private void ListarePachet_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-        private void Formulare_Click(object sender, RoutedEventArgs e)
-        {
-           
-            
-            
-        }
-
         
         private void Incarcare_Click(object sender, RoutedEventArgs e)
         {
@@ -218,6 +204,22 @@ namespace first_try
                     MessageBox.Show("Alegeți un FV din listă");
                 }
             }
+        }
+
+        private void FormularFVButton_Click(object sender, RoutedEventArgs e)
+        {
+            Fereastra_Incarcare_FV fereastra_Incarcare_FV = new Fereastra_Incarcare_FV();
+            fereastra_Incarcare_FV.Show();
+            fereastra_Incarcare_FV.WindowState = WindowState.Minimized;
+            fereastra_Incarcare_FV.printare(sender, e);
+        }
+
+        private void FormularOPButton_Click(object sender, RoutedEventArgs e)
+        {
+            Fereastra_Incarcare fereastra_Incarcare = new Fereastra_Incarcare();
+            fereastra_Incarcare.Show();
+            fereastra_Incarcare.WindowState = WindowState.Minimized;
+            fereastra_Incarcare.printare(sender, e);
         }
     }
 }
