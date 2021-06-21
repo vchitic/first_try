@@ -217,7 +217,7 @@ namespace first_try
         public static string CifraLaLiteral(int cifra, int numar_de_cifre, bool EsteFeminin)
         {
             if (numar_de_cifre == 2 && cifra == 6)  // exceptie 16 - saisprezece, 64
-                return "șai";  // sai nu sase
+                return "sai";  // sai nu sase
 
             switch (cifra)
             {
@@ -228,7 +228,7 @@ namespace first_try
                         return "un";
                 case 2:
                     if (EsteFeminin)
-                        return "două";
+                        return "doua";
                     else
                         return "doi";
 
@@ -238,9 +238,6 @@ namespace first_try
                     else
                         return "";
             }
-
-
-
         }
 
         public static bool EstePlural(int cifra)
@@ -251,7 +248,7 @@ namespace first_try
                 return false;
         }
 
-        static string[] cifre_lit2 = new string[] { "zece", "unsprezece", "doisprezece", "treisprezece", "paisprezece", "cincisprezece", "șaisprezece", "șaptesprezece", "optsprezece", "nouăsprezece" };
+        static string[] cifre_lit2 = new string[] { "zece", "unsprezece", "doisprezece", "treisprezece", "paisprezece", "cincisprezece", "saisprezece", "saptesprezece", "optsprezece", "nouasprezece" };
 
         static string GetSprezece(int numar)
         {
@@ -299,7 +296,7 @@ namespace first_try
                                 if (bool_EstePlural)
                                     construit += "sute ";
                                 else
-                                    construit += "sută ";
+                                    construit += "suta ";
                             }
                             break;
 
@@ -1054,7 +1051,35 @@ namespace first_try
 
         private void dtDataEmit_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (dtDataEmit.Text != "")
+            {
+                if (dtDataEmit.Text.IndexOf(" ") != -1)
+                {
+                    dtDataEmit.Text = dtDataEmit.Text.Substring(0, dtDataEmit.Text.IndexOf(" "));
+                }
+            }
             dtDataEmit2.Text = dtDataEmit.Text;
+        }
+
+        private void dtDataEmit_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (dtDataEmit.Text != "")
+            {
+                if (dtDataEmit.Text.IndexOf(" ") != -1)
+                {
+                    dtDataEmit.Text = dtDataEmit.Text.Substring(0, dtDataEmit.Text.IndexOf(" "));
+                }
+            }
+        }
+
+        public void click_btn_next(object sender, RoutedEventArgs e)
+        {
+            btnNext_Click(sender, e);
+        }
+
+        public void printare(object sender, RoutedEventArgs e)
+        {
+            ExportareClick(sender, e);
         }
     }
 }

@@ -107,16 +107,44 @@ namespace first_try
         {
             Fereastra_Tip_Completare_OP incarcare_completare_OP = new Fereastra_Tip_Completare_OP();
             Fereastra_Tip_Completare_FV incarcare_completare_FV = new Fereastra_Tip_Completare_FV();
+            String nr_op_selectat, nr_fv_selectat;
 
             if ((bool)OPRadiobtn.IsChecked)
             {
-                incarcare_completare_OP.Show();
+                if (NrOrdCmbOP.SelectedIndex > -1)
+                {
+                    nr_op_selectat = NrOrdCmbOP.SelectedItem.ToString();
+                    Fereastra_Incarcare fereastra_Incarcare = new Fereastra_Incarcare();
+                    fereastra_Incarcare.Show();
+                    while (fereastra_Incarcare.txtNr.Text != nr_op_selectat)
+                    {
+                        fereastra_Incarcare.click_btn_next(sender, e);
+                    }
 
-            } else
-            {
-                incarcare_completare_FV.Show();
+                    //fereastra_Incarcare.printare(sender, e);
+                }
+                else
+                {
+                    incarcare_completare_OP.Show();
+                }
             }
-
+            else
+            {
+                if(NrOrdCmb.SelectedIndex > -1)
+                {
+                    nr_fv_selectat = NrOrdCmb.SelectedItem.ToString();
+                    Fereastra_Incarcare_FV fereastra_Incarcare_FV = new Fereastra_Incarcare_FV();
+                    fereastra_Incarcare_FV.Show();
+                    while(fereastra_Incarcare_FV.txtNr.Text != nr_fv_selectat)
+                    {
+                        fereastra_Incarcare_FV.click_btn_next(sender, e);
+                    }
+                }
+                else
+                {
+                    incarcare_completare_FV.Show();
+                }
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -139,20 +167,6 @@ namespace first_try
             connection.Close();
         }
 
-        private void NrOrdCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //daca primeste valoare, se deschide formularul respectiv
-            //SELECT * FROM DateFormIncarcare WHERE (nr==nrOrdCmb.Value) ????
-        }
-
-        private void NrOrdCmb_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            //fac două combobox-uri, unul pentru OP, unul pentru FV, fiecare deschide formularul respectiv
-            //combobox-u existent e legat de DateFormIncarcareFV, adică merge pe partea de FV, poate reușești să-l
-            // faci să-mi deschidă formularu respectiv ori la dubluclick pe valoare ori după selectarea valorii 
-            // la apăsasarea butonului încărcare
-        }
-
         private void NrOrdCmbOP_Loaded(object sender, RoutedEventArgs e)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
@@ -166,6 +180,50 @@ namespace first_try
             }
 
             connection.Close();
+        }
+
+        private void ListareButton_Click(object sender, RoutedEventArgs e)
+        {
+            String nr_op_selectat, nr_fv_selectat;
+
+            if ((bool)OPRadiobtn.IsChecked)
+            {
+                if (NrOrdCmbOP.SelectedIndex > -1)
+                {
+                    nr_op_selectat = NrOrdCmbOP.SelectedItem.ToString();
+                    Fereastra_Incarcare fereastra_Incarcare = new Fereastra_Incarcare();
+                   // fereastra_Incarcare.Show().;
+                    while (fereastra_Incarcare.txtNr.Text != nr_op_selectat)
+                    {
+                        fereastra_Incarcare.click_btn_next(sender, e);
+                    }
+
+                    fereastra_Incarcare.printare(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Alegeți un OP din listă");
+                }
+            }
+            else
+            {
+                if (NrOrdCmb.SelectedIndex > -1)
+                {
+                    nr_fv_selectat = NrOrdCmb.SelectedItem.ToString();
+                    Fereastra_Incarcare_FV fereastra_Incarcare_FV = new Fereastra_Incarcare_FV();
+                    //fereastra_Incarcare_FV.Show();
+                    while (fereastra_Incarcare_FV.txtNr.Text != nr_fv_selectat)
+                    {
+                        fereastra_Incarcare_FV.click_btn_next(sender, e);
+                    }
+
+                    fereastra_Incarcare_FV.printare(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Alegeți un FV din listă");
+                }
+            }
         }
     }
 }
