@@ -154,8 +154,9 @@ namespace first_try
         private void ExportareClick(object sender, RoutedEventArgs e)
         {
             //exportare ca PDF
-           // btnComplBenef.Visibility = System.Windows.Visibility.Hidden;
+            // btnComplBenef.Visibility = System.Windows.Visibility.Hidden;
             gbButoane.Visibility = System.Windows.Visibility.Hidden;
+            lblFormatData.Visibility = System.Windows.Visibility.Hidden;
             try
             {
                 //this.IsEnabled = false;

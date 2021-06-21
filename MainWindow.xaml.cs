@@ -98,8 +98,6 @@ namespace first_try
                     {
                         fereastra_Incarcare.click_btn_next(sender, e);
                     }
-
-                    //fereastra_Incarcare.printare(sender, e);
                 }
                 else
                 {
@@ -161,9 +159,8 @@ namespace first_try
         }
 
         private void ListareButton_Click(object sender, RoutedEventArgs e)
-        {
+        {   
             String nr_op_selectat, nr_fv_selectat;
-
             if ((bool)OPRadiobtn.IsChecked)
             {
                 if (NrOrdCmbOP.SelectedIndex > -1)
@@ -176,7 +173,6 @@ namespace first_try
                     {
                         fereastra_Incarcare.click_btn_next(sender, e);
                     }
-
                     fereastra_Incarcare.printare(sender, e);
                 }
                 else
@@ -196,7 +192,6 @@ namespace first_try
                     {
                         fereastra_Incarcare_FV.click_btn_next(sender, e);
                     }
-
                     fereastra_Incarcare_FV.printare(sender, e);
                 }
                 else

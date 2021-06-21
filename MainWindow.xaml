@@ -8,7 +8,7 @@
         Title="OPFV" Height="454" Width="804" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid Background="#FFEA9A9A">
         <Button x:Name="StergeButton" Content="Șterge OP/FV-urile" HorizontalAlignment="Left" Margin="66,106,0,0" VerticalAlignment="Top" Width="173" Background="#FFFDC70F" Height="49" Click="StergeClick" BorderBrush="#FF040000" FontSize="18" ToolTip="Șterge toate OP/FV-urile încărcate"/>
-        <Button x:Name="LegislatieButton" Content="Legislație" HorizontalAlignment="Left" Margin="267,220,0,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" Click="LegislatieClick" FontSize="18" Height="30" VerticalContentAlignment="Top" BorderThickness="1"/>
+        <Button x:Name="LegislatieButton" Content="Legislație" HorizontalAlignment="Left" Margin="265,220,0,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" Click="LegislatieClick" FontSize="18" Height="30" VerticalContentAlignment="Top" BorderThickness="1"/>
         <TextBox x:Name="txtOPFV" HorizontalAlignment="Center" Width="266" IsReadOnly="True" Margin="265,8,267,357" TextWrapping="Wrap" Text="OPFV" FontSize="30" BorderBrush="{x:Null}" FontWeight="Bold" HorizontalContentAlignment="Center" Background="{x:Null}" FontFamily="Kozuka Gothic Pr6N H" SelectionBrush="{x:Null}"/>
         <TextBox x:Name="TitluTxt" HorizontalAlignment="Center" Margin="265,73,267,212" TextWrapping="Wrap" Text="Aplicație pentru generarea Ordinelor de plată și Foilor de vărsământ" Width="266" IsReadOnly="True" FontSize="23" Background="#FFFFD598" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="#FFFFD598" SelectionBrush="{x:Null}"/>
         <GroupBox x:Name="IncarcareGb" HorizontalAlignment="Center" Height="125" Margin="0,267,0,0" VerticalAlignment="Top" Width="735" Background="#FFF0C3C3" BorderBrush="{x:Null}" Foreground="Black">
@@ -26,7 +26,7 @@
         <Button x:Name="IncarcareButton" Content="Încărcare" HorizontalAlignment="Right" Margin="0,339,84,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" FontSize="18" FontWeight="Bold" Height="33" ToolTip="Încărcare/actualizare OP/FV" Click="Incarcare_Click"/>
         <Button x:Name="FormularOPButton" Content="Formular gol OP" HorizontalAlignment="Right" Margin="0,76,66,0" VerticalAlignment="Top" Width="173" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18"  ToolTip="Listare formular fol OP" Height="49" Click="FormularOPButton_Click" />
         <Button x:Name="FormularFVButton" Content="Formular gol FV" HorizontalAlignment="Right" Margin="0,136,66,0" VerticalAlignment="Top" Width="173" Height="45" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" ToolTip="Listare formular gol FV" Click="FormularFVButton_Click"/>
-        <Button x:Name="InstructButton" Content="Instrucțiuni" HorizontalAlignment="Left" Margin="410,220,0,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" Height="30" BorderThickness="1" Click="Instruct_Click"/>
+        <Button x:Name="InstructButton" Content="Instrucțiuni" HorizontalAlignment="Right" Margin="404,220,269,0" VerticalAlignment="Top" Width="120" Background="#FFFDC70F" BorderBrush="#FF040000" FontSize="18" Height="30" BorderThickness="1" Click="Instruct_Click"/>
     </Grid>
 
 </Window>
