@@ -14,6 +14,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Color = System.Drawing.Color;
+using BarcodeLib;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using Path = System.IO.Path;
 
 namespace first_try
 {
@@ -169,9 +175,27 @@ namespace first_try
             //btnComplBenef.Visibility = System.Windows.Visibility.Hidden;
             gbButoane.Visibility = System.Windows.Visibility.Hidden;
             lblFormatData.Visibility = System.Windows.Visibility.Hidden;
+            imgCodDeBare.Visibility = Visibility.Visible;
+
             try
             {
                 //this.IsEnabled = false;
+
+                Barcode barcodeAPI = new Barcode();
+                String codPlata, nrForm, barcode;
+                codPlata = txtCodPlat.Text;
+                nrForm = txtNr.Text;
+                barcode = codPlata + nrForm;
+                Color foreColor = Color.Black;
+                Color backColor = Color.Transparent;
+                int imageWidth = (int)imgCodDeBare.Width;
+                int imageHeight = (int)imgCodDeBare.Height;
+
+                System.Drawing.Image barcodeImage = barcodeAPI.Encode(TYPE.CODE128, barcode, foreColor, backColor, imageWidth, imageHeight);
+                barcodeImage.Save(@"C:\Users\Ina\OneDrive\Desktop\barcodes\" + barcode + ".png", ImageFormat.Png);
+                Uri uri = new Uri(@"C:\Users\Ina\OneDrive\Desktop\barcodes\" + barcode + ".png");
+                BitmapImage bitmap = new BitmapImage(uri);
+                imgCodDeBare.Source = bitmap;
 
                 PrintDialog printDialog = new PrintDialog();
                 if (printDialog.ShowDialog() == true)
@@ -183,7 +207,7 @@ namespace first_try
             {
                 //this.IsEnabled = true;
             }
-
+            imgCodDeBare.Visibility = Visibility.Hidden;
             gbButoane.Visibility = System.Windows.Visibility.Visible;
            
         }

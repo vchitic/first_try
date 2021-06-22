@@ -97,15 +97,12 @@
                             <!--<Button x:Name="btnOPFVtext" Content="OP/FV - imagine text" ToolTip="Listare sub Notepad" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="165" FontSize="18" Canvas.Top="119" Canvas.Left="232" Click="OPFVtextClick"/>-->
                             <Button x:Name="btnSalvare" Content="Salvare" ToolTip="Salvare" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="48" Canvas.Left="125" Click="btnSalvare_Click"/>
                             <Button x:Name="btnExportare" Content="Exportare" ToolTip="Printare sau Exportare în format PDF" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="48" Canvas.Left="232" Click="ExportareClick"/>
-                            <Image x:Name="imgCodDeBare" />
-                            <!-- în câmpu imagine de mai sus să creez un cod de bare când apăs pe export, n-am găsit nicăieri pentru window, doar pentru form-->
                         </Canvas>
                     </GroupBox>
+                    <Image x:Name="imgCodDeBare" Height="150" Width="310" Canvas.Left="30" Canvas.Top="15"/>
                     <Label x:Name="lblPrimireAcc" Content="Primirea/Acceptarea ______________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="55" Canvas.Left="7"/>
                     <Label x:Name="lblSemnatura" Content="Semnătura  ______________________________________________________" FontFamily="Times New Roman" FontSize="18" FontWeight="Bold" Canvas.Bottom="15" Canvas.Left="7"/>
                     <Image Height="100" Width="100" Source="LS.jpg" Canvas.Bottom="2" Canvas.Right="3"/>
-
-
                 </Canvas>
 
             </Border>

@@ -84,13 +84,11 @@
                             <Button x:Name="btnInstr" Content="Instrucțiuni" ToolTip="Instrucțiuni de lucru" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="119" Canvas.Left="15" Click="InstrClick"/>
                             <Button x:Name="btnInfUtile" Content="Inf. Utile" ToolTip="Informații utile" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="119" Canvas.Left="232" Click="InfUtile"/>
                             <Button x:Name="btnSugestii" Content="Sugestii" ToolTip="Sugestii" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="91" FontSize="18" Canvas.Top="119" Canvas.Left="125" Click="SugestiiClick"/>
-                            <!--<Button x:Name="btnFisierDate" Content="Fișier Date" ToolTip="Vizualizare fișier date încărcate" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="154" Canvas.Left="125" Click="FisierDateClick"/>-->
-                            <!--<Button x:Name="btnFondMediu" Content="Fondul pt. mediu" ToolTip="Completare automată pentru taxe Fond de Mediu" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="140" FontSize="18" Canvas.Top="154" Canvas.Left="232" Click="FondMediuClick"/>-->
-                            <!--<Button x:Name="btnOPFVtext" Content="OP/FV - imagine text" ToolTip="Listare sub Notepad" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="165" FontSize="18" Canvas.Top="119" Canvas.Left="232" Click="OPFVtextClick"/>-->
                             <Button x:Name="btnSalvare" Content="Salvare" ToolTip="Salvare" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="48" Canvas.Left="125" Click="btnSalvare_Click"/>
                             <Button x:Name="btnExportare" Content="Exportare" ToolTip="Printare sau Exportare în format PDF" FontFamily="Times New Roman" Background="#FFFDC70F" BorderBrush="#FF040000" BorderThickness="1" Height="24" Width="90" FontSize="18" Canvas.Top="48" Canvas.Left="232" Click="ExportareClick"/>
                         </Canvas>
                     </GroupBox>
+                    <Image x:Name="imgCodDeBare" Height="150" Width="310" Canvas.Left="30" Canvas.Top="15"/>
                 </Canvas>
             </Border>
             <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Left" Height="195" Margin="652,504,0,0" VerticalAlignment="Top" Width="494">
