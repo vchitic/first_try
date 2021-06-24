@@ -115,12 +115,7 @@ namespace first_try
         }
 
         private void frmIncarcareFV_Loaded(object sender, RoutedEventArgs e)
-        {
-            //BazaDeDateDataSet bazaDeDateDataSet = ((BazaDeDateDataSet)(this.FindResource("bazaDeDateDataSet")));
-            //System.Windows.Data.CollectionViewSource bazaDeDateViewSource =
-            //((System.Windows.Data.CollectionViewSource)(this.FindResource("bazaDeDateViewSource")));
-            //bazaDeDateViewSource.View.MoveCurrentToFirst();
-            
+        {   
             ICollectionView navigationView =
              CollectionViewSource.GetDefaultView(bazaDeDateDataSet.DateFormIncarcareFV);
             navigationView.MoveCurrentToFirst();
@@ -159,16 +154,12 @@ namespace first_try
 
         private void ExportareClick(object sender, RoutedEventArgs e)
         {
-            //exportare ca PDF
-            // btnComplBenef.Visibility = System.Windows.Visibility.Hidden;
             gbButoane.Visibility = System.Windows.Visibility.Hidden;
             lblFormatData.Visibility = System.Windows.Visibility.Hidden;
             imgCodDeBare.Visibility = Visibility.Visible;
 
             try
             {
-                //this.IsEnabled = false;
-
                 Barcode barcodeAPI = new Barcode();
                 String codPlata, nrForm, barcode;
                 codPlata = txtCodPlat.Text;
@@ -193,7 +184,7 @@ namespace first_try
             }
             finally
             {
-                //this.IsEnabled = true;
+                this.IsEnabled = true;
             }
 
             imgCodDeBare.Visibility = Visibility.Hidden;
@@ -207,11 +198,11 @@ namespace first_try
             int numar_lucru = numar;
             while (numar_lucru != 0)
             {
-                numar_lucru /= 10; // impartim la zece
+                numar_lucru /= 10;
                 NumarDeCifre++;
             }
 
-            if (numar == 0) NumarDeCifre++;  // avem o exceptie: cand numarul este 0 avem o cifra
+            if (numar == 0) NumarDeCifre++;
 
             return NumarDeCifre;
 
@@ -223,7 +214,7 @@ namespace first_try
             int calculat = 1;
             while (putere != 0)
             {
-                calculat *= 10; // inmultim cu zece
+                calculat *= 10;
                 putere--;
             }
 
@@ -235,20 +226,20 @@ namespace first_try
         {
             pozitie--;
             int divizor = RidicareLaPutere(10, pozitie);
-            return numar / divizor;  // imparte pentru a obtine cifra de la pozitie
+            return numar / divizor;
         }
 
         static string[] cifre_lit = new string[] { "o", "doua", "trei", "patru", "cinci", "sase", "sapte", "opt", "noua" };
 
         public static string CifraLaLiteral(int cifra, int numar_de_cifre, bool EsteFeminin)
         {
-            if (numar_de_cifre == 2 && cifra == 6)  // exceptie 16 - saisprezece, 64
-                return "sai";  // sai nu sase
+            if (numar_de_cifre == 2 && cifra == 6)
+                return "sai"; 
 
             switch (cifra)
             {
                 case 1:
-                    if (EsteFeminin && numar_de_cifre != 10)  // miliarde este un miliard - masculin la singular
+                    if (EsteFeminin && numar_de_cifre != 10) 
                         return "o";
                     else
                         return "un";
@@ -296,7 +287,7 @@ namespace first_try
             {
                 int numar_de_la_pozitie = CifraDeLaPozitie(numar, numar_de_cifre);
 
-                if (numar_de_la_pozitie > 0)  // cifrele cu zero nu ne intereseaza
+                if (numar_de_la_pozitie > 0) 
                 {
                     bool EsteFeminin = false;
                     bool bool_EstePlural = EstePlural(numar_de_la_pozitie);
@@ -317,7 +308,7 @@ namespace first_try
                                 else
                                     construit += "miliard ";
                             }
-                            else if (numar_de_cifre == 9 || numar_de_cifre == 6 || numar_de_cifre == 3) // sute de milioane || sute de milioane || sute
+                            else if (numar_de_cifre == 9 || numar_de_cifre == 6 || numar_de_cifre == 3) // sute de milioane
                             {
                                 if (bool_EstePlural)
                                     construit += "sute ";
@@ -326,21 +317,21 @@ namespace first_try
                             }
                             break;
 
-                        case 8:  //  daca este 1 prima cifra: sprezece, altfel doua zeci de milioane
+                        case 8:  //  daca este 1 prima cifra: sprezece, altfel zeci de milioane
                         case 5:  //  daca este 1 prima cifra: sprezece, altfel zeci de mii
                         case 2:  //  daca este 1 prima cifra: sprezece, altfel zeci
 
                             EsteFeminin = true;
                             if (numar_de_la_pozitie == 1)
-                            {  // iau doua cifre acum
+                            {  
                                 int numar_de_cifre_vechi = numar_de_cifre;
                                 numar_de_cifre--;
-                                numar_de_la_pozitie = CifraDeLaPozitie(numar, numar_de_cifre);  //  int doua_numere_de_la_pozitie
+                                numar_de_la_pozitie = CifraDeLaPozitie(numar, numar_de_cifre); 
                                 if (numar_de_la_pozitie > 1)
                                     bool_EstePlural = true;
 
                                 construit += GetSprezece(numar_de_la_pozitie);
-                                if (numar_de_cifre_vechi == 8)  // (numar_de_cifre+1) deoarece am scazut 1
+                                if (numar_de_cifre_vechi == 8) 
                                 {
                                     if (bool_EstePlural)
                                         construit += " milioane";
@@ -354,7 +345,7 @@ namespace first_try
                                     else
                                         construit += " mie";
                                 }
-                                else if (numar_de_cifre_vechi == 2)  // nu a mai ramas nimic
+                                else if (numar_de_cifre_vechi == 2) 
                                 {
                                     construit += " ";
                                 }
@@ -368,7 +359,7 @@ namespace first_try
                             construit += " ";
                             break;
 
-                        case 7:  // un numar singur urmat: "si numar de milioane"
+                        case 7:  // si "numar" de milioane
                         case 4:  // si "numar" de mii
                         case 1:  // si "numar"
                             EsteFeminin = false;
@@ -393,7 +384,7 @@ namespace first_try
                                 {
                                     if (!EraGol)
                                         construit += " de";
-                                    construit += " milioane ";  // plural = feminin
+                                    construit += " milioane ";  // plural = feminim
                                 }
                                 else
                                 {
@@ -426,10 +417,10 @@ namespace first_try
 
                 int ridicat = 1;
 
-                if ((numar_de_cifre - 1) > 0)  // verifica ca puterea sa fie mai mare ca zero
+                if ((numar_de_cifre - 1) > 0) 
                     ridicat = RidicareLaPutere(10, numar_de_cifre - 1);
 
-                int de_scazut = numar_de_la_pozitie * ridicat;  // eliminam numarul care a fost deja printat
+                int de_scazut = numar_de_la_pozitie * ridicat; 
                 numar = numar - de_scazut;
 
                 numar_de_cifre--;
@@ -452,12 +443,6 @@ namespace first_try
             }
             txtPlatiti2.Text = txtPlatiti.Text;
         }
-
-        /*private void ComplBenefClick(object sender, RoutedEventArgs e)
-        {
-            ComplBenef completare = new ComplBenef();
-            completare.Show();
-        }*/
 
         private void btnNew_Click(object sender, RoutedEventArgs e)
         {

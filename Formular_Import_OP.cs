@@ -64,7 +64,7 @@ namespace first_try
                             tableCollection = result.Tables;
                             cmbSheet.Items.Clear();
                             foreach (DataTable table in tableCollection)
-                                cmbSheet.Items.Add(table.TableName);    //adaugare sheet la combobox
+                                cmbSheet.Items.Add(table.TableName);  
                         }
                     }
                 }

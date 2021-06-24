@@ -21,15 +21,6 @@ namespace first_try
             InitializeComponent();
         }
 
-        private void btnImportExcel_Click(object sender, EventArgs e)
-        {
-            /*Workbook workbook = new Workbook();
-            workbook.LoadFromFile(@"");
-            Worksheet sheet = workbook.Worksheets[0];
-            this.dataGridViewFV.DataSource = sheet.ExportDataTable();
-            */
-        }
-
         private void btnSaveToDB_Click(object sender, EventArgs e)
         {
             SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
@@ -74,7 +65,7 @@ namespace first_try
                             tableCollection = result.Tables;
                             cmbSheet.Items.Clear();
                             foreach (DataTable table in tableCollection)
-                                cmbSheet.Items.Add(table.TableName);    //adaugare sheet la combobox
+                                cmbSheet.Items.Add(table.TableName); 
                         }
                     }
                 }
