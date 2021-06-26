@@ -54,6 +54,8 @@ namespace first_try
                     MessageBox.Show(mess, capt, boxButton, boxImage);
                 }
                 conn.Close();
+                NrOrdCmb.Items.Clear();
+                NrOrdCmbOP.Items.Clear();
             }
         }
 
@@ -207,6 +209,8 @@ namespace first_try
             fereastra_Incarcare_FV.Show();
             fereastra_Incarcare_FV.WindowState = WindowState.Minimized;
             fereastra_Incarcare_FV.printare(sender, e);
+            fereastra_Incarcare_FV.Close();
+
         }
 
         private void FormularOPButton_Click(object sender, RoutedEventArgs e)
@@ -215,6 +219,37 @@ namespace first_try
             fereastra_Incarcare.Show();
             fereastra_Incarcare.WindowState = WindowState.Minimized;
             fereastra_Incarcare.printare(sender, e);
+            fereastra_Incarcare.Close();
+        }
+
+        private void NrOrdCmbOP_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand(@"SELECT nr FROM DateFormIncarcare", connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                NrOrdCmbOP.Items.Add(reader[0]).ToString();
+            }
+
+            connection.Close();
+        }
+
+        private void NrOrdCmb_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\My stuff\Licență\Baza de date\DateIncarcare.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlCommand command = new SqlCommand(@"SELECT nr FROM DateFormIncarcare", connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                NrOrdCmbOP.Items.Add(reader[0]).ToString();
+            }
+
+            connection.Close();
         }
     }
 }

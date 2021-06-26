@@ -170,34 +170,45 @@ namespace first_try
             lblFormatData.Visibility = System.Windows.Visibility.Hidden;
             imgCodDeBare.Visibility = Visibility.Visible;
 
-            try
+            if (txtCodPlat.Text != "" && txtNr.Text != "")
             {
-                Barcode barcodeAPI = new Barcode();
-                String codPlata, nrForm, barcode;
-                codPlata = txtCodPlat.Text;
-                nrForm = txtNr.Text;
-                barcode = codPlata + nrForm;
-                Color foreColor = Color.Black;
-                Color backColor = Color.Transparent;
-                int imageWidth = (int)imgCodDeBare.Width;
-                int imageHeight = (int)imgCodDeBare.Height;
+                try
+                {
+                    Barcode barcodeAPI = new Barcode();
+                    String codPlata, nrForm, barcode;
+                    codPlata = txtCodPlat.Text;
+                    nrForm = txtNr.Text;
+                    barcode = codPlata + nrForm;
+                    Color foreColor = Color.Black;
+                    Color backColor = Color.Transparent;
+                    int imageWidth = (int)imgCodDeBare.Width;
+                    int imageHeight = (int)imgCodDeBare.Height;
 
-                System.Drawing.Image barcodeImage = barcodeAPI.Encode(TYPE.CODE128, barcode, foreColor, backColor, imageWidth, imageHeight);
-                barcodeImage.Save(@"C:\Users\Ina\OneDrive\Desktop\barcodes\" + barcode + ".png", ImageFormat.Png);
-                Uri uri = new Uri(@"C:\Users\Ina\OneDrive\Desktop\barcodes\" + barcode + ".png");
-                BitmapImage bitmap = new BitmapImage(uri);
-                imgCodDeBare.Source = bitmap;
+                    System.Drawing.Image barcodeImage = barcodeAPI.Encode(TYPE.CODE128, barcode, foreColor, backColor, imageWidth, imageHeight);
+                    barcodeImage.Save(@"C:\Users\Ina\OneDrive\Desktop\barcodes\" + barcode + ".png", ImageFormat.Png);
+                    Uri uri = new Uri(@"C:\Users\Ina\OneDrive\Desktop\barcodes\" + barcode + ".png");
+                    BitmapImage bitmap = new BitmapImage(uri);
+                    imgCodDeBare.Source = bitmap;
 
+                    PrintDialog printDialog = new PrintDialog();
+                    if (printDialog.ShowDialog() == true)
+                    {
+                        printDialog.PrintVisual(grdIncarcare, "OP");
+                    }
+                }
+                finally
+                {
+                    this.IsEnabled = true;
+                }
+            } else
+            {
                 PrintDialog printDialog = new PrintDialog();
                 if (printDialog.ShowDialog() == true)
-                { 
+                {
                     printDialog.PrintVisual(grdIncarcare, "OP");
                 }
             }
-            finally
-            {
-                this.IsEnabled = true;
-            }
+
             imgCodDeBare.Visibility = Visibility.Hidden;
             gbButoane.Visibility = System.Windows.Visibility.Visible;
            
